@@ -1,0 +1,9 @@
+# MoveInSync FDE Case Study - Core Dependencies
+pandas>=2.0.0
+google-play-scraper>=1.2.7
+streamlit>=1.30.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+reportlab>=4.0.0
+pytest>=7.0.0
+altair>=5.0.0
