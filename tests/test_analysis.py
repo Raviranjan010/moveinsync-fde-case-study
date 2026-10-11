@@ -1,6 +1,5 @@
 """
 Unit and Integration Tests for MoveInSync Reviews Analysis Pipeline
-Author: Forward Deployed Engineer (FDE) Candidate
 """
 
 import json
@@ -130,58 +129,42 @@ def test_calculate_metrics(sample_raw_df):
 
 
 def test_processed_files_exist_and_valid():
-    """Verify that actual generated project artifacts exist and have valid structure."""
+    """The committed data files exist and have the expected structure."""
     processed_csv = "data/processed/reviews_cleaned.csv"
     metrics_json = "data/processed/analysis_metrics.json"
-    pdf_report = "reports/MoveInSync_FDE_Case_Study.pdf"
-    pptx_presentation = "reports/MoveInSync_Case_Study_Presentation.pptx"
-    md_report = "reports/MoveInSync_FDE_Case_Study.md"
-    verification_doc = "docs/data_verification.md"
-    worksheet_doc = "docs/classification_validation_worksheet.md"
-
-    for path in [processed_csv, metrics_json, pdf_report, pptx_presentation, md_report, verification_doc, worksheet_doc]:
-        assert os.path.exists(path), f"Missing project deliverable: {path}"
-        assert os.path.getsize(path) > 0, f"Artifact {path} is empty"
+    evidence_csv = "data/processed/issue_evidence.csv"
+    for path in [processed_csv, metrics_json, evidence_csv]:
+        assert os.path.exists(path), f"Missing file: {path}"
+        assert os.path.getsize(path) > 0, f"Empty file: {path}"
 
     df = pd.read_csv(processed_csv)
     assert len(df) == 8000
-    assert "rating" in df.columns
-    assert "sentiment" in df.columns
-    assert "theme_gps_live_tracking" in df.columns
+    assert {"rating", "sentiment", "review_text", "review_date", "app_version"} <= set(df.columns)
 
     with open(metrics_json, "r", encoding="utf-8") as f:
         data = json.load(f)
     assert data["summary"]["total_reviews"] == 8000
     assert data["summary"]["average_rating"] == pytest.approx(3.707, 0.01)
-    assert "baseline_reconciliation" in data
-    assert data["baseline_reconciliation"]["india_store_rating"] == pytest.approx(4.638, 0.01)
-    assert data["baseline_reconciliation"]["us_storefront_rating"] == pytest.approx(4.32, 0.01)
+    assert data["baseline_reconciliation"]["store_score"] == pytest.approx(4.638, 0.01)
 
 
 def test_user_privacy_redaction():
-    """Verify that reviewer display names are redacted in public dataset files for PII protection."""
-    raw_csv = "data/raw/reviews_raw_com_moveinsync_ets.csv"
-    proc_csv = "data/processed/reviews_cleaned.csv"
-
-    for path in [raw_csv, proc_csv]:
+    """Reviewer display names must not be committed."""
+    for path in ["data/raw/reviews_raw_com_moveinsync_ets.csv", "data/processed/reviews_cleaned.csv"]:
         df = pd.read_csv(path)
-        assert "user_name" in df.columns
-        # Ensure all user_name records are redacted
-        unique_names = df["user_name"].unique()
-        assert len(unique_names) == 1 and unique_names[0] == "[REDACTED]", (
-            f"Unredacted personal user names detected in {path}"
-        )
+        assert set(df["user_name"].unique()) == {"[REDACTED]"}, f"Unredacted names in {path}"
 
 
-def test_validation_worksheet_contains_30_reviews():
-    """Verify that the manual classification validation worksheet contains exactly 30 representative reviews."""
-    worksheet_doc = "docs/classification_validation_worksheet.md"
-    with open(worksheet_doc, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # Check for headers Review #01 through Review #30
-    for i in range(1, 31):
-        expected_header = f"### Review #{i:02d}"
-        assert expected_header in content, f"Missing {expected_header} in validation worksheet"
-    assert "Human Validation Field" in content
-    assert "Confirmed Correct" in content
+def test_issue_evidence_counts_are_consistent():
+    """Issue counts can never exceed the number of negative reviews, and keyword rules must match known text."""
+    from scripts.issue_evidence import ISSUES, count_issues
+    neg = pd.DataFrame({"review_text": [
+        "Not getting otp to login", "App keeps crashing", "worst app", "mandatory to rate every ride"],
+        "rating": [1, 1, 1, 2]})
+    masks, any_specific = count_issues(neg)
+    assert all(int(m.sum()) <= len(neg) for m in masks.values())
+    assert masks["OTP not received / OTP issues"].iloc[0]
+    assert masks["App crashes / won't open / stuck on error"].iloc[1]
+    assert not any_specific.iloc[2]
+    assert masks["Forced / repeated rating prompt"].iloc[3]
+    assert len(ISSUES) >= 10

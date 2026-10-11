@@ -6,6 +6,9 @@ on:
     - cron: '0 4 * * 1'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   monitor-and-refresh:
     runs-on: ubuntu-latest
@@ -37,4 +40,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(monitor): auto-refresh Google Play Store reviews & analytics [skip ci]"
-          file_pattern: "data/raw/* data/processed/* reports/*"
+          file_pattern: "data/raw/* data/processed/* reports/figures/*"

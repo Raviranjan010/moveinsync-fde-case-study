@@ -1,7 +1,6 @@
 """
 MoveInSync Reviews Analysis Engine
-Author: Forward Deployed Engineer (FDE) Candidate
-Purpose: Clean, categorize, and statistically analyze genuine Google Play Store reviews for MoveInSync.
+Cleans the raw reviews, tags broad themes, writes data/processed/ and reports/figures/
 """
 
 import argparse
@@ -140,6 +139,25 @@ def clean_dataset(df_raw: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+
+def _store_baseline(sample_mean: float, sample_size: int) -> Dict[str, Any]:
+    """Store-level numbers come from the metadata saved by collect_reviews.py (nothing hardcoded)."""
+    meta_path = os.path.join("data", "raw", "collection_metadata.json")
+    meta: Dict[str, Any] = {}
+    if os.path.exists(meta_path):
+        with open(meta_path, "r", encoding="utf-8") as f:
+            meta = json.load(f)
+    return {
+        "store_score": meta.get("current_store_score"),
+        "store_ratings_count": meta.get("store_ratings_count"),
+        "store_reviews_count": meta.get("store_reviews_count"),
+        "collected_at_utc": meta.get("collection_timestamp_utc"),
+        "sample_mean_rating": sample_mean,
+        "sample_size": sample_size,
+        "note": ("The store score counts every star rating; the sample counts only written reviews, "
+                 "and people with a bad trip are more likely to write one, so the sample mean is lower."),
+    }
+
 def calculate_metrics(df: pd.DataFrame) -> Dict[str, Any]:
     """Calculate comprehensive statistical metrics and breakdowns."""
     total_reviews = len(df)
@@ -246,20 +264,7 @@ def calculate_metrics(df: pd.DataFrame) -> Dict[str, Any]:
             "denominator_total_reviews": total_reviews,
             "denominator_negative_reviews": total_negative
         },
-        "baseline_reconciliation": {
-            "india_store_rating": 4.638,
-            "us_storefront_rating": 4.32,
-            "sample_mean_rating": avg_rating,
-            "store_total_ratings": 114867,
-            "store_total_reviews": 23619,
-            "sample_size": total_reviews,
-            "localization_explanation": (
-                "Google Play localizes displayed star ratings by device and country (policy enacted late 2021). "
-                "Users browsing via US storefront see 4.32★ (~4.3★), while users in India (primary market, >99% rides) "
-                "see 4.64★ (exact 4.638★). The collected sample of 8,000 written reviews exhibits a mean rating of "
-                "3.707★ with 29.61% 1-2 star reviews due to written-review negative selection bias."
-            )
-        },
+        "baseline_reconciliation": _store_baseline(avg_rating, total_reviews),
         "methodology_disclosures": {
             "multi_label_overlap": (
                 "Theme categories are non-mutually-exclusive (multi-label). Individual reviews can express multiple "

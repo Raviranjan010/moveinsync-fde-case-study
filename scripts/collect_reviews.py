@@ -1,7 +1,6 @@
 """
 MoveInSync Play Store Reviews Collector
-Author: Forward Deployed Engineer (FDE) Candidate
-Purpose: Reliably collect genuine, publicly accessible Google Play Store reviews for MoveInSync applications.
+Collects public Google Play reviews for a package (default: com.moveinsync.ets) into data/raw/
 """
 
 import argparse
@@ -182,7 +181,7 @@ def import_csv_workflow(import_path: str, app_id: str) -> pd.DataFrame:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Collect genuine Google Play Store reviews for MoveInSync.")
+    parser = argparse.ArgumentParser(description="Collect public Google Play reviews for a package.")
     parser.add_argument("--app-id", type=str, default=PRIMARY_APP_ID, help="Google Play package name")
     parser.add_argument("--target-count", type=int, default=5000, help="Maximum number of unique reviews to collect")
     parser.add_argument("--lang", type=str, default="en", help="Language code (default: en)")

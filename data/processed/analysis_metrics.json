@@ -37,13 +37,13 @@
     "denominator_negative_reviews": 2369
   },
   "baseline_reconciliation": {
-    "india_store_rating": 4.638,
-    "us_storefront_rating": 4.32,
+    "store_score": 4.6377,
+    "store_ratings_count": 114855,
+    "store_reviews_count": 23617,
+    "collected_at_utc": "2026-10-10T19:22:26.632493+00:00",
     "sample_mean_rating": 3.707,
-    "store_total_ratings": 114867,
-    "store_total_reviews": 23619,
     "sample_size": 8000,
-    "localization_explanation": "Google Play localizes displayed star ratings by device and country (policy enacted late 2021). Users browsing via US storefront see 4.32\u2605 (~4.3\u2605), while users in India (primary market, >99% rides) see 4.64\u2605 (exact 4.638\u2605). The collected sample of 8,000 written reviews exhibits a mean rating of 3.707\u2605 with 29.61% 1-2 star reviews due to written-review negative selection bias."
+    "note": "The store score counts every star rating; the sample counts only written reviews, and people with a bad trip are more likely to write one, so the sample mean is lower."
   },
   "methodology_disclosures": {
     "multi_label_overlap": "Theme categories are non-mutually-exclusive (multi-label). Individual reviews can express multiple friction points simultaneously (e.g. tracking glitch AND late pickup). Therefore, theme citation counts overlap, and category percentages of negative reviews sum to more than 100% (specifically 262.14% of negative reviews).",

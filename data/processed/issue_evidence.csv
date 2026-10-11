@@ -1,0 +1,14 @@
+issue,recent_365d_neg,recent_pct_of_neg,alltime_neg,alltime_pct_of_neg
+No specific issue named (rules matched nothing),512,66.3,1586,66.9
+"Login / session problems (repeated login, SSO, locked out)",69,8.9,208,8.8
+OTP not received / OTP issues,62,8.0,135,5.7
+App crashes / won't open / stuck on error,40,5.2,134,5.7
+Support / complaint not resolved,37,4.8,95,4.0
+Driver conduct / safety / AC,30,3.9,104,4.4
+Cab late / no-show / driver didn't come,26,3.4,78,3.3
+"Live tracking / map (zoom reset, wrong location, not updating)",23,3.0,113,4.8
+ETA / pickup time wrong,17,2.2,47,2.0
+"Booking / roster failures (can't book, slot, roster)",16,2.1,52,2.2
+Ads / new update disliked,15,1.9,49,2.1
+Forced / repeated rating prompt,8,1.0,21,0.9
+Seat-belt prompt before OTP,3,0.4,3,0.1

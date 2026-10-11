@@ -1,146 +1,31 @@
-# Data Collection & Analysis Methodology
+# Methodology
 
-**MoveInSync Forward Deployed Engineer (FDE) Candidate Case Study**  
-**Investigation Target:** MoveInSync Employee Commute Mobile App (`com.moveinsync.ets`)
+## Question
+Why are the Play Store ratings for MoveInSync lower than they should be, and what should be fixed first?
 
----
+## Scope
+- App: `com.moveinsync.ets` (MoveInSync employee app), the app employees use to book and track rides.
+- Not covered: the driver app and the field app; reviews in languages other than English; reviews from outside the India storefront.
 
-## 1. Research Objectives & Strategic Context
+## Data
+- Source: public Google Play reviews, collected with the `google-play-scraper` Python library (`scripts/collect_reviews.py`).
+- Collected on 10 Oct 2026: the 8,000 most recent written reviews (of about 23,600), dated 15 Dec 2023 to 9 Oct 2026. Settings: language `en`, country `in`.
+- Store score at collection time: 4.6377 stars from 114,855 ratings (`data/raw/collection_metadata.json`).
+- Reviewer display names are replaced with `[REDACTED]` before anything is saved.
 
-MoveInSync is the world’s leading employee commute and workplace automation platform, powering daily mobility for over **1.5 million enterprise employees** across **430+ organizations** in 39 countries. 
+## Steps
+1. `scripts/analyze_reviews.py` cleans and de-duplicates reviews, adds sentiment buckets (1-2 negative, 3 neutral, 4-5 positive) and broad theme tags, and writes `data/processed/` and `reports/figures/`.
+2. `scripts/issue_evidence.py` counts specific, fixable issues in 1-2 star reviews with keyword rules, for the last 365 days and for all time. Run it with `--samples 5` to print random matches for every rule and check them by eye.
+3. The memo (`Recommendation_Memo.docx`) ranks issues by how many negative reviews name them in the last 12 months, then by how much the app team can fix directly.
 
-While the Google Play Store displays a cumulative historical rating of **4.64★** (aggregated over 114,000+ ratings since app inception), qualitative analysis of recent user reviews reveals an active **dissatisfaction rate of 29.61%** (1-star and 2-star reviews).
+## Why the last 12 months
+Almost all 2026 reviews are on version 12.x, while many of the most upvoted complaints come from version 11.x in 2024. Using all-time counts would point the team at problems that may already be fixed.
 
-The objective of this research is to:
-1. Systematically collect genuine, publicly accessible user reviews from the Google Play Store.
-2. Filter, clean, and deduplicate reviews to build an empirical, un-manipulated dataset.
-3. Classify user friction points into validated operational and engineering themes.
-4. Separate measured review symptoms from unverified internal root-cause hypotheses.
-5. Provide actionable, prioritized engineering and product recommendations that can be executed immediately by MoveInSync engineering teams.
+## Limits
+- Written reviews are a small, negative-leaning slice of riders, so their mean (about 3.8) is lower than the store score (4.64). Trends in this sample are more useful than the absolute level.
+- Issue counts come from keyword rules, not human labels. A review can match several issues, some matches are wrong, and reviews written in other words are missed. About two thirds of negative reviews mention no specific issue, so every count is a lower bound for that issue.
+- Reviews show symptoms, not causes. The fixes in the memo are hypotheses to check against internal crash, OTP and ticket data.
+- Developer reply data is as returned by the scraper.
 
----
-
-## 2. Scope of Analysis & App Ecosystem Segmentation
-
-MoveInSync maintains multiple distinct applications on the Google Play Store designed for specific operational roles:
-
-| Application Package ID | App Name | Primary User Persona | Store Rating | Included in Scope? | Rationale |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **`com.moveinsync.ets`** | **MoveInSync** | **Enterprise Employees** | **~4.64★** | **YES (Primary)** | Direct employee touchpoint for self-booking, live cab tracking, boarding OTPs, and shift rosters. This is where brand sentiment is won or lost. |
-| `com.moveinsync.driver.lite` | Moveinsync Partner - Lite | Cab Drivers & Fleet Partners | ~4.25★ | Excluded from primary corpus | Operational navigation, trip sheet execution, and passenger validation. Separate driver persona. |
-| `com.moveinsync.driver.dco` | MoveInSync - Driver Partner | Fleet Driver Partners | ~3.50★ | Excluded from primary corpus | Dedicated driver-partner workflow; distinct operational failure modes (incentives, trip allocation). |
-| `field.moveinsync.ets` | MoveInSync - Field app | Transport Marshals & Desk Operations | ~4.08★ | Excluded from primary corpus | Internal on-premise operational tooling; low review volume. |
-
-> **Scope Rule:** Do not mix employee, driver, and workplace app reviews without explaining the distinction. This case study focuses strictly on `com.moveinsync.ets` to diagnose the exact user journey of corporate commuters.
-
----
-
-## 3. Data Collection Architecture & Provenance
-
-Data was collected using the Python `google-play-scraper` library, interacting directly with public Google Play Store endpoints without requiring authenticated scraping or proprietary internal access.
-
-### Collection Parameters:
-* **Target Package Identifier:** `com.moveinsync.ets`
-* **Target Sample Size:** 8,000 unique reviews
-* **Sorting Strategies Used:** Both `Sort.NEWEST` (to capture recent software regressions and post-update bugs) and `Sort.MOST_RELEVANT` (to capture high-impact issues endorsed by community upvotes).
-* **Language & Regional Scope:** `lang='en'`, `country='in'` (India, MoveInSync's primary operational market).
-* **Collection Timestamp:** October 2026.
-* **Effective Date Range:** December 15, 2023 to October 09, 2026.
-
-### Raw Data Schema:
-Each collected review record captures the following empirical fields:
-* `review_id`: Globally unique Google Play Store review UUID.
-* `user_name`: Display name of reviewer.
-* `rating`: Integer star score from 1 to 5.
-* `review_text`: Unmodified text feedback written by user.
-* `review_date`: Timestamp of review submission (ISO 8601).
-* `app_version`: App build version installed by user at time of review (e.g. `12.19.0`, `12.20.0`).
-* `thumbs_up_count`: Number of other Play Store users who marked the review as helpful.
-* `developer_reply`: Official MoveInSync customer support response text (if present).
-* `reply_date`: Timestamp of developer response.
-
----
-
-## 4. Data Cleaning & Transformation Pipeline
-
-The data processing pipeline (`scripts/analyze_reviews.py`) executes deterministic cleaning stages:
-
-```
-[Raw Google Play Scraper] 
-       │ (8,000 records)
-       ▼
-[Deduplication Engine] ──────────► Deduplicate by review_id
-       │
-       ▼
-[Text Normalization] ────────────► Strip whitespace, handle NaN, compute length & word counts
-       │
-       ▼
-[Date & Version Parsing] ────────► Parse UTC datetimes, extract Year-Month, normalize version strings
-       │
-       ▼
-[Sentiment Segmentation] ────────► 1-2★: Negative | 3★: Neutral | 4-5★: Positive
-       │
-       ▼
-[Thematic Pattern Engine] ───────► Multi-label regex matching across 11 validated themes
-       │
-       ▼
-[Processed Clean Dataset] ───────► Saved to data/processed/reviews_cleaned.csv
-```
-
-### Sentiment Classification Definitions:
-* **Negative (Detractor):** Ratings of `1` or `2` stars. These represent active friction, broken workflows, or product dissatisfaction.
-* **Neutral (Passive):** Rating of `3` stars. Mixed experiences or feature suggestions.
-* **Positive (Promoter):** Ratings of `4` or `5` stars. Successful, safe, and punctual commutes.
-
----
-
-## 5. Thematic Categorization Taxonomy
-
-Thematic classification is multi-label: a single review can mention multiple issues (for example, cab delay and inaccurate GPS tracking simultaneously). 
-
-The classification taxonomy was constructed and validated using iterative token frequency analysis, n-gram co-occurrence, and manual spot-checking against genuine negative reviews:
-
-| Theme Key | Human Label | Regex Boundary Logic & Keywords |
-| :--- | :--- | :--- |
-| `app_performance_crash` | App Crashes & Performance | Crashes, app freezing, blank screen, stuck on splash screen, uninstall/reinstall, slow loading, stopped working. |
-| `gps_live_tracking` | GPS & Live Tracking Glitches | Inaccurate ETA, map auto-zooms out, frozen vehicle marker, routing errors, wrong vehicle position, navigation delay. |
-| `booking_roster_flow` | Booking & Roster Flow | Self-booking failure, slot cut-off times, waitlist lack of feedback, confusion between login/logout shift timings. |
-| `vehicle_delay_pickup` | Pickup Delays & Cab No-Show | Cab delayed 45-60 min, late pickup, excessive curb waiting, cab not assigned, missed cab. |
-| `driver_behavior_safety` | Driver Conduct & Commute Safety | Rash driving, speeding, rude behavior, AC turned off, unauthorized driver, night safety concerns. |
-| `login_roster_account` | Login, SSO & Session Expiry | Frequent automatic logouts, corporate SSO credential errors, session expired, unable to log in before shift. |
-| `otp_notifications` | OTP & Notification Friction | Seatbelt popup blocking "View OTP", delayed OTP SMS, missing arrival notification, push alert spam. |
-| `ui_usability_prompts` | UI Usability & Forced Rating | Forced post-ride rating dialog with no skip button, confusing UI redesigns, clunky navigation. |
-| `support_desk_operations` | Support Desk & Issue Resolution | Transport desk unresponsive, tickets closed without solution, lack of real-time human escalation. |
-| `general_dissatisfaction` | General Dissatisfaction | Generic venting without feature citation ("worst app", "pathetic", "third class", "waste of time"). |
-| `positive_commute_experience`| Positive Commute Feedback | Punctual, safe, comfortable, smooth ride, great driver, convenient corporate transport. |
-
----
-
-## 6. Analytical Guardrails & Limitations
-
-1. **Storefront Rating Baseline Reconciliation**:  
-   * **India Storefront (`gl=IN`):** Cumulative score of **4.64★** (114,867 ratings, 23,619 reviews). MoveInSync's primary operating base.
-   * **US Storefront (`gl=US`):** Displayed store score of **4.32★** (~4.3★). Under Google Play's regional localization policy (enacted late 2021), devices registered outside India display ratings computed over localized regional subsets.
-   * **Written Sample Mean:** **3.71★** over 8,000 written reviews ($N_{total} = 8,000$).
-   * See detailed audit in [docs/data_verification.md](file:///d:/Temp/moveinsync-fde-case-study-1/docs/data_verification.md).
-
-2. **Multi-Label Overlap & Denominator Rigor**:  
-   Theme classification is non-mutually exclusive (multi-label). One review can report both a map glitch and a cab delay.
-   * **Denominator Total:** $N_{total} = 8,000$ unique reviews.
-   * **Denominator Negative:** $N_{neg} = 2,369$ reviews rated 1★ or 2★ (29.61% of sample).
-   * **Total Theme Citations in Negative Reviews:** 6,210 citations across 2,369 reviews.
-   * **Percentage Sum:** Category percentages of negative reviews sum to **262.14%** due to multi-label overlap.
-   * Representative validation worksheet provided in [docs/classification_validation_worksheet.md](file:///d:/Temp/moveinsync-fde-case-study-1/docs/classification_validation_worksheet.md).
-
-3. **Empirical Symptoms vs Root Causes**:  
-   Public reviews report observable symptoms (e.g., *"the map zooms out every 3 seconds"*, *"app crashed after update"*). We strictly label internal architectural explanations as **hypotheses** requiring validation via internal telemetry (crash logs, APM traces, backend API latency metrics).
-
-4. **Review Self-Selection Bias**:  
-   Users who experience friction are significantly more motivated to write long, detailed public reviews than satisfied riders who simply tap 5 stars or don't review. This explains why the written review corpus has a higher negative concentration (29.61%) than the cumulative store rating (4.64★). The 29.61% rate represents the written dataset, not the entire population of 1.5M+ daily riders.
-
-5. **Privacy & Data Redaction**:  
-   In compliance with data hygiene practices, all reviewer display names (`user_name`) have been redacted to `[REDACTED]` in public repository files to protect end-user personal information.
-
-6. **Tooling & Permitted AI Assistance Disclosure**:  
-   * **Core Technical Stack:** Python 3.12, `google-play-scraper` (v1.2.7), `pandas` (v3.0.5), `matplotlib` (v3.11.2), `seaborn` (v0.13.2), `reportlab` (v5.0.1), `python-pptx` (v1.0.2), `streamlit` (v1.63.0), and `pytest` (v9.1.1).
-   * **Permitted AI Usage:** In alignment with assignment guidelines (*"Use any tools you like, AI included"*), AI coding assistants were leveraged for exploratory pattern drafting, script boilerplates, and automated test scaffolding. All empirical comparisons, statistical calculations, and recommendations were verified through deterministic code and documented worksheets.
+## Tools
+Python 3, pandas, matplotlib, Streamlit, pytest, GitHub Actions. An AI assistant (Claude) helped write the scripts and draft the memo; all numbers can be regenerated with the scripts in this repository.
