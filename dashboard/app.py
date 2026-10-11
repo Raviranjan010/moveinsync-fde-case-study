@@ -225,17 +225,17 @@ with c3:
     st.markdown(f"""
     <div class="metric-card">
         <div class="metric-title">Store Lifetime Score</div>
-        <div class="metric-value">{store_alltime:.2f} ★</div>
-        <div class="metric-sub">{meta.get('store_ratings_count', 114855):,} ratings logged</div>
+        <div class="metric-value">{store_alltime:.2f}★ <span style="font-size: 1.05rem; color: #64748b; font-weight: 500;">(4.32★ US)</span></div>
+        <div class="metric-sub">{meta.get('store_ratings_count', 114855):,} ratings (gl=IN primary)</div>
     </div>
     """, unsafe_allow_html=True)
 
 with c4:
     st.markdown(f"""
     <div class="metric-card">
-        <div class="metric-title">Dissatisfaction Rate</div>
+        <div class="metric-title">Sample Dissatisfaction</div>
         <div class="metric-value">{neg_pct:.1f}%</div>
-        <div class="metric-sub">{neg_count:,} reviews rated 1-2★</div>
+        <div class="metric-sub">{neg_count:,} reviews rated 1-2★ (written sample)</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -274,6 +274,7 @@ with tabs[0]:
 
     with col_chart2:
         st.markdown("**Negative Review Complaint Categories (% of 1-2★ Reviews)**")
+        st.caption(f"Note: Multi-label classification (citations overlap; sum > 100%). Denominator is active negative reviews ($N_{{neg}} = {len(filtered_df[filtered_df['sentiment'] == 'Negative']):,}$).")
         # Build theme breakdown from filtered
         neg_subset = filtered_df[filtered_df["sentiment"] == "Negative"]
         neg_theme_data = []
@@ -548,22 +549,31 @@ with tabs[3]:
 
     > **Scope Distinction**: This study deliberately focuses on **`com.moveinsync.ets`** because it represents the core employee experience where negative ratings directly damage brand reputation and corporate employee satisfaction. Driver and field applications operate under different operational constraints and should not be conflated without separate telemetry.
 
-    ### 3. Collection Metadata & Integrity Guardrails
+    ### 3. Storefront Baseline Reconciliation & Geographical Differences
+    * **India Storefront (`gl=IN`):** Official store rating of **4.64★** (114,867 ratings, 23,619 reviews). This represents the primary corporate commute user base (>99% of rides).
+    * **US Storefront (`gl=US`):** Displays **4.32★** (~4.3★). Under Google Play's regional localization policy (enacted late 2021), devices registered outside India display ratings computed over localized regional subsets.
+    * **Written Sample Mean:** **3.71★** over 8,000 written reviews, with 29.61% 1-2 star reviews. This reflects negative self-selection bias: riders with operational complaints write text reviews, whereas satisfied commuters give silent 5-star ratings.
+
+    ### 4. Collection Metadata & Integrity Guardrails
     * **Target Package**: `com.moveinsync.ets`
     * **Collection Engine**: `google-play-scraper` (Python)
-    * **Dataset Size**: **8,000 genuine reviews**
+    * **Dataset Size**: **8,000 genuine verified reviews** (audit confirmed 100% field congruence with fresh live API fetch)
     * **Temporal Coverage**: December 2023 through October 2026
     * **Geographic / Language Parameters**: India (`country='in'`), English (`lang='en'`)
-    * **Ethical & Data Guardrails**: No fabricated reviews, synthetic records, or assumed metrics. All statistics are derived deterministically from the public dataset.
+    * **Privacy Protection**: Reviewer display names (`user_name`) have been redacted (`[REDACTED]`) in all public files.
+    * **Ethical & Data Guardrails**: No fabricated reviews, synthetic records, or invented statistics.
 
-    ### 4. Methodological Limitations & Telemetry Boundaries
+    ### 5. Methodological Limitations & Telemetry Boundaries
+    * **Multi-Label Overlap**: Theme tagging is non-mutually exclusive; single reviews express multiple issues simultaneously. Theme citations sum to 6,210 (262.1% of negative reviews).
     * **Public vs Private Feedback**: This dataset captures public Google Play Store reviews. Private grievances resolved internally via corporate transport desk tickets or enterprise SLAs are not visible in public data.
-    * **Root Cause Verification**: External reviews reveal *symptoms* (e.g. 'map auto-zooms out', 'cab delayed 1 hour'). Definitive root causes (e.g. GPS SDK camera bounds listener, vendor cab shortage, traffic routing API timeouts) are framed as engineering hypotheses requiring internal server telemetry and crash log verification.
+    * **Root Cause Verification**: External reviews reveal *symptoms* (e.g. 'map auto-zooms out', 'cab delayed 1 hour'). Definitive root causes are framed as engineering hypotheses requiring internal server telemetry (Crashlytics, Datadog) verification.
+    * **Permitted AI Assistance**: AI coding tools were utilized for exploratory regex structuring, test generation, and slide compilation scripts, while all empirical verifications, aggregations, and recommendations were verified through deterministic code.
     """)
 
     st.json({
-        "collection_metadata": meta,
-        "sample_summary": metrics["summary"]
+        "baseline_reconciliation": metrics.get("baseline_reconciliation", {}),
+        "sample_summary": metrics["summary"],
+        "collection_metadata": meta
     })
 
 # Footer

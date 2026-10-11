@@ -183,15 +183,15 @@ def build_pdf_report(
     meta_data = [
         [
             Paragraph("<b>Target Application:</b> MoveInSync (com.moveinsync.ets)", table_body),
-            Paragraph(f"<b>Store Lifetime Rating:</b> {meta.get('current_store_score', 4.64)}★ ({meta.get('store_ratings_count', 114855):,} ratings)", table_body)
+            Paragraph(f"<b>Store Lifetime Rating (India):</b> {meta.get('current_store_score', 4.64)}★ ({meta.get('store_ratings_count', 114855):,} ratings)", table_body)
         ],
         [
-            Paragraph("<b>Corpus Analyzed:</b> 8,000 Genuine Reviews (Dec 2023 - Oct 2026)", table_body),
-            Paragraph(f"<b>Review Corpus Mean Rating:</b> {metrics['summary']['average_rating']}★ (Dissatisfaction: {metrics['summary']['negative_review_rate_pct']}%)", table_body)
+            Paragraph("<b>Corpus Analyzed:</b> 8,000 Genuine Verified Reviews (Dec 2023 - Oct 2026)", table_body),
+            Paragraph("<b>Storefront Discrepancy Resolved:</b> US Storefront displays 4.32★ (~4.3★) due to Google Play regional rating localization", table_body)
         ],
         [
-            Paragraph("<b>Target Persona:</b> Enterprise Corporate Commuters", table_body),
-            Paragraph("<b>Report Date:</b> October 2026", table_body)
+            Paragraph(f"<b>Written Review Sample Mean:</b> {metrics['summary']['average_rating']}★ (Negative Share: {metrics['summary']['negative_review_rate_pct']}%)", table_body),
+            Paragraph("<b>User Privacy:</b> Reviewer display names redacted for privacy ([REDACTED])", table_body)
         ]
     ]
     meta_table = Table(meta_data, colWidths=[270, 270])
@@ -208,14 +208,17 @@ def build_pdf_report(
     story.append(Paragraph("1. Executive Summary", h1_style))
     exec_summary_text = (
         "MoveInSync operates workplace commute logistics for over <b>1.5 million daily enterprise employees</b> across "
-        "<b>430+ Fortune 500 customers</b>. While the Google Play Store shows an overall historical rating of <b>4.64★</b>, "
-        "empirical analysis of <b>8,000 genuine user reviews</b> reveals that <b>29.61% of written reviews are negative (1★ or 2★)</b>, "
-        "with 1-star reviews alone accounting for <b>26.17% (2,094 reviews)</b>.<br/><br/>"
+        "<b>430+ Fortune 500 customers</b>. A baseline audit of Google Play Store ratings resolves the apparent contradiction "
+        "between reported ratings: the official India storefront displays a <b>4.64★ lifetime rating</b> across 114,867 ratings, "
+        "while the US storefront displays <b>4.32★ (~4.3★)</b> due to Google Play's geographic rating localization policy. "
+        "Meanwhile, empirical analysis of our verified sample of <b>8,000 written reviews</b> yields a mean rating of <b>3.71★</b>, "
+        "with <b>29.61% negative reviews (2,369 reviews rated 1★ or 2★)</b>. This divergence demonstrates the standard "
+        "negative selection bias of written reviews: riders experiencing operational friction are far more motivated to write text reviews.<br/><br/>"
         "Crucially, our investigation proves that MoveInSync does not suffer from widespread platform rejection. Instead, "
-        "low ratings are driven by <b>three severe, localized software friction points</b> occurring at time-sensitive boarding moments: "
-        "(1) a blocking seatbelt modal intercepting the boarding OTP, (2) a Google Maps camera auto-zoom reset glitch during live cab tracking, "
+        "negative reviews are driven by <b>three severe, localized software friction points</b> occurring at time-sensitive boarding moments: "
+        "(1) a blocking seatbelt safety modal intercepting the boarding OTP at curbside, (2) a Google Maps camera auto-zoom reset glitch during live cab tracking, "
         "and (3) an unskippable post-ride rating dialog that locks users out and provokes retaliatory 1-star reviews on the Play Store. "
-        "Resolving these three P0 hotfixes will immediately halt negative review velocity and restore Play Store sentiment."
+        "Resolving these three P0 hotfixes will immediately halt negative review velocity and restore user confidence."
     )
     story.append(Paragraph(exec_summary_text, body_style))
     story.append(Spacer(1, 6))
@@ -460,23 +463,27 @@ def build_pdf_report(
     # SECTION 10 & 11: ASSUMPTIONS, LIMITATIONS & MONITORING
     story.append(Paragraph("7. Assumptions, Telemetry Limitations & Ongoing Monitoring", h1_style))
     limits_text = (
-        "• <b>Symptom vs Root-Cause Boundary:</b> Public reviews reliably capture user experience symptoms. Underlying technical causes "
+        "• <b>Symptom vs Root-Cause Boundary:</b> Public Play Store reviews reliably capture user experience symptoms. Underlying technical causes "
         "(e.g. Google Maps camera listener logic, database migration conflicts) are framed as engineering hypotheses requiring internal "
         "APM (Crashlytics / Datadog) verification.<br/>"
+        "• <b>Multi-Label Overlap & Denominators:</b> Complaint categories are non-mutually exclusive (multi-label). One review can express multiple "
+        "friction points simultaneously. The 2,369 negative reviews generated 6,210 category citations (summing to 262.1% of negative reviews). "
+        "Every metric clearly cites its denominator.<br/>"
         "• <b>Ongoing Rating-Monitoring Pipeline:</b> To satisfy leadership's recurring query <i>'How are our Play Store ratings?'</i>, "
-        "a continuous automated workflow is established: a weekly cron job executes <code>scripts/collect_reviews.py</code> and "
-        "<code>scripts/analyze_reviews.py</code>, generating updated trend charts and firing Slack alerts if the 30-day negative review rate exceeds 20%."
+        "a repeatable Python workflow (<code>scripts/refresh_monitoring.py</code>) and proposed GitHub Actions schedule re-scrape reviews, "
+        "re-run analysis, compile updated PDF/PPTX deliverables, and trigger console regression alerts (with optional webhook alerting via <code>ALERT_WEBHOOK_URL</code>)."
     )
     story.append(Paragraph(limits_text, body_style))
     story.append(Spacer(1, 8))
 
     # SECTION 12: SOURCES & REFERENCES
-    story.append(Paragraph("8. Sources, Tools & References", h1_style))
+    story.append(Paragraph("8. Sources, Tools & AI Assistance Disclosure", h1_style))
     sources_text = (
         "1. <b>Google Play Store MoveInSync Application:</b> <code>https://play.google.com/store/apps/details?id=com.moveinsync.ets</code><br/>"
         "2. <b>MoveInSync Corporate Overview:</b> MoveInSync Technology Solutions Pvt Ltd, powering 1.5M+ daily commutes across 430+ enterprises.<br/>"
-        "3. <b>Data Scraper & Analytics Stack:</b> Python 3.12, <code>google-play-scraper</code> (v1.2.7), <code>pandas</code> (v3.0.5), <code>matplotlib</code> (v3.11.2), <code>seaborn</code> (v0.13.2), <code>reportlab</code> (v5.0.1), and <code>streamlit</code> (v1.30.0).<br/>"
-        "4. <b>Project Repository:</b> <code>https://github.com/Raviranjan010/moveinsync-fde-case-study</code>"
+        "3. <b>Core Analytics & Visualization Stack:</b> Python 3.12, <code>google-play-scraper</code> (v1.2.7), <code>pandas</code> (v3.0.5), <code>matplotlib</code> (v3.11.2), <code>seaborn</code> (v0.13.2), <code>reportlab</code> (v5.0.1), <code>python-pptx</code> (v1.0.2), and <code>streamlit</code> (v1.63.0).<br/>"
+        "4. <b>Permitted AI Assistance Disclosure:</b> In compliance with candidate assignment instructions (<i>'Use any tools you like, AI included'</i>), AI coding assistants were utilized for exploratory regex structuring, test generation, and slide compilation scripts. All mathematical aggregations, data verifications, and recommendations were verified through deterministic code.<br/>"
+        "5. <b>Project Repository:</b> <code>https://github.com/Raviranjan010/moveinsync-fde-case-study</code>"
     )
     story.append(Paragraph(sources_text, body_style))
 

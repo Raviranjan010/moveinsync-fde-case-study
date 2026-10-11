@@ -37,7 +37,7 @@ def run_pipeline():
     print("    Analysis completed.")
 
     # Step 3: Re-compile PDF report
-    print("[3/3] Re-compiling updated PDF report...")
+    print("[3/4] Re-compiling updated PDF report...")
     pdf_cmd = [sys.executable, "scripts/generate_pdf_report.py"]
     ret3 = subprocess.run(pdf_cmd, capture_output=True, text=True)
     if ret3.returncode != 0:
@@ -45,7 +45,17 @@ def run_pipeline():
         return False
     print("    PDF report compiled.")
 
-    # Step 4: Health Check & Regression Alerting
+    # Step 4: Re-compile updated presentation deck (if script exists)
+    if os.path.exists("scripts/generate_presentation.py"):
+        print("[4/4] Re-generating PowerPoint presentation deck...")
+        ppt_cmd = [sys.executable, "scripts/generate_presentation.py"]
+        ret4 = subprocess.run(ppt_cmd, capture_output=True, text=True)
+        if ret4.returncode == 0:
+            print("    PowerPoint presentation compiled.")
+        else:
+            print(f"[Warning] Presentation generation had issues: {ret4.stderr}")
+
+    # Health Check & Regression Alerting
     metrics_path = "data/processed/analysis_metrics.json"
     if os.path.exists(metrics_path):
         with open(metrics_path, "r", encoding="utf-8") as f:
@@ -63,11 +73,29 @@ def run_pipeline():
         print(f"Sample Average Rating:     {avg_score} Stars")
         print(f"Active Negative Rate:      {neg_rate}% (1-2 Star Reviews)")
 
+        webhook_url = os.environ.get("ALERT_WEBHOOK_URL")
         if neg_rate > ALERT_THRESHOLD_NEGATIVE_RATE:
-            print(f"\n[ALERT - REGRESSION DETECTED] Negative review share ({neg_rate}%) exceeds threshold ({ALERT_THRESHOLD_NEGATIVE_RATE}%).")
-            print("Action Required: Check P0 hotfix status (OTP modal, Map auto-zoom, Forced rating prompt).")
+            alert_msg = f"[ALERT - REGRESSION DETECTED] Negative review share ({neg_rate}%) exceeds threshold ({ALERT_THRESHOLD_NEGATIVE_RATE}%).\nAction Required: Check P0 hotfix status (OTP modal, Map auto-zoom, Forced rating prompt)."
+            print(f"\n{alert_msg}")
         else:
-            print(f"\n[STATUS NORMAL] Negative review share is within acceptable boundary ({neg_rate}% <= {ALERT_THRESHOLD_NEGATIVE_RATE}%).")
+            alert_msg = f"[STATUS NORMAL] Negative review share is within acceptable boundary ({neg_rate}% <= {ALERT_THRESHOLD_NEGATIVE_RATE}%)."
+            print(f"\n{alert_msg}")
+
+        if webhook_url:
+            print(f"[*] Dispatching webhook alert to configured endpoint...")
+            try:
+                import urllib.request
+                req = urllib.request.Request(
+                    webhook_url,
+                    data=json.dumps({"text": alert_msg}).encode("utf-8"),
+                    headers={"Content-Type": "application/json"}
+                )
+                urllib.request.urlopen(req, timeout=10)
+                print("[+] Webhook alert dispatched successfully.")
+            except Exception as w_err:
+                print(f"[!] Webhook delivery failed: {w_err}")
+        else:
+            print("[Note] External webhook not configured (ALERT_WEBHOOK_URL unset). Console alerting active.")
         print("=" * 60 + "\n")
 
     return True

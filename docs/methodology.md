@@ -118,9 +118,29 @@ The classification taxonomy was constructed and validated using iterative token 
 
 ## 6. Analytical Guardrails & Limitations
 
-1. **Empirical Symptoms vs Root Causes**:  
+1. **Storefront Rating Baseline Reconciliation**:  
+   * **India Storefront (`gl=IN`):** Cumulative score of **4.64★** (114,867 ratings, 23,619 reviews). MoveInSync's primary operating base.
+   * **US Storefront (`gl=US`):** Displayed store score of **4.32★** (~4.3★). Under Google Play's regional localization policy (enacted late 2021), devices registered outside India display ratings computed over localized regional subsets.
+   * **Written Sample Mean:** **3.71★** over 8,000 written reviews ($N_{total} = 8,000$).
+   * See detailed audit in [docs/data_verification.md](file:///d:/Temp/moveinsync-fde-case-study-1/docs/data_verification.md).
+
+2. **Multi-Label Overlap & Denominator Rigor**:  
+   Theme classification is non-mutually exclusive (multi-label). One review can report both a map glitch and a cab delay.
+   * **Denominator Total:** $N_{total} = 8,000$ unique reviews.
+   * **Denominator Negative:** $N_{neg} = 2,369$ reviews rated 1★ or 2★ (29.61% of sample).
+   * **Total Theme Citations in Negative Reviews:** 6,210 citations across 2,369 reviews.
+   * **Percentage Sum:** Category percentages of negative reviews sum to **262.14%** due to multi-label overlap.
+   * Representative validation worksheet provided in [docs/classification_validation_worksheet.md](file:///d:/Temp/moveinsync-fde-case-study-1/docs/classification_validation_worksheet.md).
+
+3. **Empirical Symptoms vs Root Causes**:  
    Public reviews report observable symptoms (e.g., *"the map zooms out every 3 seconds"*, *"app crashed after update"*). We strictly label internal architectural explanations as **hypotheses** requiring validation via internal telemetry (crash logs, APM traces, backend API latency metrics).
-2. **Review Self-Selection Bias**:  
-   Users who experience friction are significantly more motivated to write long, detailed public reviews than satisfied riders who simply tap 5 stars or don't review. This explains why the review corpus has a higher negative concentration (29.61%) than the cumulative store rating (4.64★).
-3. **Regional & Language Scope**:  
-   Collection was scoped to English reviews originating from India (`country='in'`). Regional vernacular expressions in Hindi/Hinglish (e.g., *bekar*, *bakwas*) were mapped into general dissatisfaction.
+
+4. **Review Self-Selection Bias**:  
+   Users who experience friction are significantly more motivated to write long, detailed public reviews than satisfied riders who simply tap 5 stars or don't review. This explains why the written review corpus has a higher negative concentration (29.61%) than the cumulative store rating (4.64★). The 29.61% rate represents the written dataset, not the entire population of 1.5M+ daily riders.
+
+5. **Privacy & Data Redaction**:  
+   In compliance with data hygiene practices, all reviewer display names (`user_name`) have been redacted to `[REDACTED]` in public repository files to protect end-user personal information.
+
+6. **Tooling & Permitted AI Assistance Disclosure**:  
+   * **Core Technical Stack:** Python 3.12, `google-play-scraper` (v1.2.7), `pandas` (v3.0.5), `matplotlib` (v3.11.2), `seaborn` (v0.13.2), `reportlab` (v5.0.1), `python-pptx` (v1.0.2), `streamlit` (v1.63.0), and `pytest` (v9.1.1).
+   * **Permitted AI Usage:** In alignment with assignment guidelines (*"Use any tools you like, AI included"*), AI coding assistants were leveraged for exploratory pattern drafting, script boilerplates, and automated test scaffolding. All empirical comparisons, statistical calculations, and recommendations were verified through deterministic code and documented worksheets.

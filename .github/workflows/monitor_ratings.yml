@@ -37,4 +37,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(monitor): auto-refresh Google Play Store reviews & analytics [skip ci]"
-          file_pattern: "data/ processed/* reports/*"
+          file_pattern: "data/raw/* data/processed/* reports/*"

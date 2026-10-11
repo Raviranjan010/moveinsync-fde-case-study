@@ -119,8 +119,8 @@ def collect_reviews(
     return list(collected_dict.values())
 
 
-def normalize_raw_records(records: List[Dict[str, Any]], app_id: str) -> pd.DataFrame:
-    """Normalize raw scraper output into clean tabular DataFrame format."""
+def normalize_raw_records(records: List[Dict[str, Any]], app_id: str, redact_names: bool = True) -> pd.DataFrame:
+    """Normalize raw scraper output into clean tabular DataFrame format, redacting reviewer names by default."""
     normalized = []
     for r in records:
         review_date = r.get("at")
@@ -135,10 +135,12 @@ def normalize_raw_records(records: List[Dict[str, Any]], app_id: str) -> pd.Data
         else:
             reply_date_str = str(reply_date) if reply_date else ""
 
+        user_display_name = "[REDACTED]" if redact_names else (r.get("userName", "") or "")
+
         normalized.append({
             "review_id": r.get("reviewId", ""),
             "app_id": app_id,
-            "user_name": r.get("userName", ""),
+            "user_name": user_display_name,
             "rating": int(r.get("score", 0)),
             "review_text": r.get("content", "") or "",
             "review_date": date_str,
@@ -187,6 +189,7 @@ def main():
     parser.add_argument("--country", type=str, default="in", help="Country code (default: in)")
     parser.add_argument("--output-dir", type=str, default="data/raw", help="Target directory for raw data")
     parser.add_argument("--import-csv", type=str, default=None, help="Import reviews from local CSV instead of scraping")
+    parser.add_argument("--keep-user-names", action="store_true", help="Preserve public reviewer display names (default: False / redacted for privacy)")
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
@@ -209,7 +212,7 @@ def main():
         if not raw_records:
             print("[!] Collection returned zero reviews. Please verify network access or use --import-csv.")
             sys.exit(1)
-        df_raw = normalize_raw_records(raw_records, args.app_id)
+        df_raw = normalize_raw_records(raw_records, args.app_id, redact_names=not args.keep_user_names)
         collection_method = "google_play_scraper_api"
 
     # 3. Save raw CSV

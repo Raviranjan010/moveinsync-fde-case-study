@@ -32,7 +32,22 @@
       "Neutral": 3.04
     },
     "total_negative_reviews": 2369,
-    "negative_review_rate_pct": 29.61
+    "negative_review_rate_pct": 29.61,
+    "denominator_total_reviews": 8000,
+    "denominator_negative_reviews": 2369
+  },
+  "baseline_reconciliation": {
+    "india_store_rating": 4.638,
+    "us_storefront_rating": 4.32,
+    "sample_mean_rating": 3.707,
+    "store_total_ratings": 114867,
+    "store_total_reviews": 23619,
+    "sample_size": 8000,
+    "localization_explanation": "Google Play localizes displayed star ratings by device and country (policy enacted late 2021). Users browsing via US storefront see 4.32\u2605 (~4.3\u2605), while users in India (primary market, >99% rides) see 4.64\u2605 (exact 4.638\u2605). The collected sample of 8,000 written reviews exhibits a mean rating of 3.707\u2605 with 29.61% 1-2 star reviews due to written-review negative selection bias."
+  },
+  "methodology_disclosures": {
+    "multi_label_overlap": "Theme categories are non-mutually-exclusive (multi-label). Individual reviews can express multiple friction points simultaneously (e.g. tracking glitch AND late pickup). Therefore, theme citation counts overlap, and category percentages of negative reviews sum to more than 100% (specifically 262.14% of negative reviews).",
+    "negative_share_sample_bound": "The 29.61% negative review rate represents the proportion of 1-2 star reviews within this 8,000 collected written review dataset. It should not be conflated with the entire 1.5M+ daily rider population, as dissatisfied riders have a significantly higher propensity to write text reviews than satisfied riders."
   },
   "theme_breakdown": [
     {

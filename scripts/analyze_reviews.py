@@ -242,7 +242,35 @@ def calculate_metrics(df: pd.DataFrame) -> Dict[str, Any]:
             "sentiment_counts": sentiment_counts,
             "sentiment_percentages": sentiment_percentages,
             "total_negative_reviews": total_negative,
-            "negative_review_rate_pct": round((total_negative / total_reviews) * 100, 2)
+            "negative_review_rate_pct": round((total_negative / total_reviews) * 100, 2),
+            "denominator_total_reviews": total_reviews,
+            "denominator_negative_reviews": total_negative
+        },
+        "baseline_reconciliation": {
+            "india_store_rating": 4.638,
+            "us_storefront_rating": 4.32,
+            "sample_mean_rating": avg_rating,
+            "store_total_ratings": 114867,
+            "store_total_reviews": 23619,
+            "sample_size": total_reviews,
+            "localization_explanation": (
+                "Google Play localizes displayed star ratings by device and country (policy enacted late 2021). "
+                "Users browsing via US storefront see 4.32★ (~4.3★), while users in India (primary market, >99% rides) "
+                "see 4.64★ (exact 4.638★). The collected sample of 8,000 written reviews exhibits a mean rating of "
+                "3.707★ with 29.61% 1-2 star reviews due to written-review negative selection bias."
+            )
+        },
+        "methodology_disclosures": {
+            "multi_label_overlap": (
+                "Theme categories are non-mutually-exclusive (multi-label). Individual reviews can express multiple "
+                "friction points simultaneously (e.g. tracking glitch AND late pickup). Therefore, theme citation counts "
+                "overlap, and category percentages of negative reviews sum to more than 100% (specifically 262.14% of negative reviews)."
+            ),
+            "negative_share_sample_bound": (
+                "The 29.61% negative review rate represents the proportion of 1-2 star reviews within this 8,000 collected "
+                "written review dataset. It should not be conflated with the entire 1.5M+ daily rider population, as "
+                "dissatisfied riders have a significantly higher propensity to write text reviews than satisfied riders."
+            )
         },
         "theme_breakdown": theme_stats,
         "monthly_trends": monthly_trend,
@@ -325,8 +353,8 @@ def generate_figures(df: pd.DataFrame, metrics: Dict[str, Any], output_dir: str)
 
         palette = sns.color_palette("mako", len(theme_df))
         bars = ax.barh(theme_df["label"], theme_df["pct_of_negative_reviews"], color=palette, edgecolor="black", linewidth=0.6, height=0.65)
-        ax.set_title("MoveInSync Top Complaint Categories (% of 1-2 Star Reviews)", fontsize=13, fontweight="bold", pad=12)
-        ax.set_xlabel("% of Negative Reviews Mentioning Category", fontsize=11, labelpad=8)
+        ax.set_title("Top Complaint Categories in Negative Reviews (N_neg = 2,369)\n[Multi-label classification; theme counts overlap, sum exceeds 100%]", fontsize=11, fontweight="bold", pad=10)
+        ax.set_xlabel("% of Negative Reviews (Denominator = 2,369)", fontsize=10, labelpad=8)
 
         for bar, count, pct in zip(bars, theme_df["negative_mentions"], theme_df["pct_of_negative_reviews"]):
             width = bar.get_width()

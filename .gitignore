@@ -44,3 +44,8 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Local reference materials (kept locally, excluded from repository index)
+reference/
+data/backup/
+data/verification/

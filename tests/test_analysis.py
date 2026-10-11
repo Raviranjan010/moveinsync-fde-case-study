@@ -134,10 +134,14 @@ def test_processed_files_exist_and_valid():
     processed_csv = "data/processed/reviews_cleaned.csv"
     metrics_json = "data/processed/analysis_metrics.json"
     pdf_report = "reports/MoveInSync_FDE_Case_Study.pdf"
+    pptx_presentation = "reports/MoveInSync_Case_Study_Presentation.pptx"
+    md_report = "reports/MoveInSync_FDE_Case_Study.md"
+    verification_doc = "docs/data_verification.md"
+    worksheet_doc = "docs/classification_validation_worksheet.md"
 
-    assert os.path.exists(processed_csv), f"Missing {processed_csv}"
-    assert os.path.exists(metrics_json), f"Missing {metrics_json}"
-    assert os.path.exists(pdf_report), f"Missing {pdf_report}"
+    for path in [processed_csv, metrics_json, pdf_report, pptx_presentation, md_report, verification_doc, worksheet_doc]:
+        assert os.path.exists(path), f"Missing project deliverable: {path}"
+        assert os.path.getsize(path) > 0, f"Artifact {path} is empty"
 
     df = pd.read_csv(processed_csv)
     assert len(df) == 8000
@@ -149,3 +153,35 @@ def test_processed_files_exist_and_valid():
         data = json.load(f)
     assert data["summary"]["total_reviews"] == 8000
     assert data["summary"]["average_rating"] == pytest.approx(3.707, 0.01)
+    assert "baseline_reconciliation" in data
+    assert data["baseline_reconciliation"]["india_store_rating"] == pytest.approx(4.638, 0.01)
+    assert data["baseline_reconciliation"]["us_storefront_rating"] == pytest.approx(4.32, 0.01)
+
+
+def test_user_privacy_redaction():
+    """Verify that reviewer display names are redacted in public dataset files for PII protection."""
+    raw_csv = "data/raw/reviews_raw_com_moveinsync_ets.csv"
+    proc_csv = "data/processed/reviews_cleaned.csv"
+
+    for path in [raw_csv, proc_csv]:
+        df = pd.read_csv(path)
+        assert "user_name" in df.columns
+        # Ensure all user_name records are redacted
+        unique_names = df["user_name"].unique()
+        assert len(unique_names) == 1 and unique_names[0] == "[REDACTED]", (
+            f"Unredacted personal user names detected in {path}"
+        )
+
+
+def test_validation_worksheet_contains_30_reviews():
+    """Verify that the manual classification validation worksheet contains exactly 30 representative reviews."""
+    worksheet_doc = "docs/classification_validation_worksheet.md"
+    with open(worksheet_doc, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Check for headers Review #01 through Review #30
+    for i in range(1, 31):
+        expected_header = f"### Review #{i:02d}"
+        assert expected_header in content, f"Missing {expected_header} in validation worksheet"
+    assert "Human Validation Field" in content
+    assert "Confirmed Correct" in content
