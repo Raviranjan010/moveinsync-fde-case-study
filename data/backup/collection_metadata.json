@@ -1,0 +1,28 @@
+{
+  "collection_timestamp_utc": "2026-10-10T19:22:26.632493+00:00",
+  "collection_method": "google_play_scraper_api",
+  "app_id": "com.moveinsync.ets",
+  "app_title": "MoveInSync",
+  "developer": "MoveInSync: Enabling Hybrid Workplaces",
+  "current_store_score": 4.6377,
+  "store_ratings_count": 114855,
+  "store_reviews_count": 23617,
+  "installs": "1,000,000+",
+  "store_url": "https://play.google.com/store/apps/details?id=com.moveinsync.ets",
+  "collected_sample_size": 8000,
+  "date_range": {
+    "earliest_review_date": "2023-12-15T22:36:02",
+    "latest_review_date": "2026-10-09T18:11:59"
+  },
+  "query_parameters": {
+    "language": "en",
+    "country": "in",
+    "target_count": 8000
+  },
+  "collection_limitations": [
+    "Google Play Store restricts bulk public scraping to accessible paginated review tokens (~3,000-8,000 reviews).",
+    "Data reflects English-language reviews primarily submitted from the India region (IN).",
+    "Private employee feedback submitted directly via in-app corporate transport desk tickets is internal and not represented in Play Store public data.",
+    "Historical reviews where users uninstalled without reviewing or rated via star-only without text are partially unrepresented in qualitative analysis."
+  ]
+}
