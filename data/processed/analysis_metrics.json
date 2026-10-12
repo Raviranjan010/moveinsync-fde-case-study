@@ -4,8 +4,8 @@
     "average_rating": 3.707,
     "median_rating": 5.0,
     "date_range": {
-      "start": "2023-12-15",
-      "end": "2026-10-09"
+      "start": "2023-12-16",
+      "end": "2026-10-11"
     },
     "rating_distribution_counts": {
       "1": 2094,
@@ -37,10 +37,10 @@
     "denominator_negative_reviews": 2369
   },
   "baseline_reconciliation": {
-    "store_score": 4.6377,
-    "store_ratings_count": 114855,
-    "store_reviews_count": 23617,
-    "collected_at_utc": "2026-10-10T19:22:26.632493+00:00",
+    "store_score": 4.6387,
+    "store_ratings_count": 114879,
+    "store_reviews_count": 23621,
+    "collected_at_utc": "2026-10-12T11:25:04.976952+00:00",
     "sample_mean_rating": 3.707,
     "sample_size": 8000,
     "note": "The store score counts every star rating; the sample counts only written reviews, and people with a bad trip are more likely to write one, so the sample mean is lower."
@@ -54,13 +54,13 @@
       "theme_key": "general_dissatisfaction",
       "label": "General Dissatisfaction",
       "description": "Generic negative sentiment and frustration without a specific technical feature specified.",
-      "total_mentions": 791,
-      "pct_of_all_reviews": 9.89,
+      "total_mentions": 790,
+      "pct_of_all_reviews": 9.88,
       "negative_mentions": 768,
       "pct_of_negative_reviews": 32.42,
-      "positive_mentions": 17,
+      "positive_mentions": 16,
       "mean_rating": 1.13,
-      "total_upvotes": 333
+      "total_upvotes": 334
     },
     {
       "theme_key": "app_performance_crash",
@@ -72,19 +72,19 @@
       "pct_of_negative_reviews": 19.5,
       "positive_mentions": 105,
       "mean_rating": 1.9,
-      "total_upvotes": 280
+      "total_upvotes": 282
     },
     {
       "theme_key": "gps_live_tracking",
       "label": "GPS & Live Tracking Glitches",
       "description": "Inaccurate ETA, map auto-zooming out, vehicle marker frozen, route mismatch, or location delay.",
-      "total_mentions": 680,
-      "pct_of_all_reviews": 8.5,
+      "total_mentions": 679,
+      "pct_of_all_reviews": 8.49,
       "negative_mentions": 372,
       "pct_of_negative_reviews": 15.7,
-      "positive_mentions": 256,
+      "positive_mentions": 255,
       "mean_rating": 2.62,
-      "total_upvotes": 428
+      "total_upvotes": 431
     },
     {
       "theme_key": "booking_roster_flow",
@@ -108,7 +108,7 @@
       "pct_of_negative_reviews": 10.64,
       "positive_mentions": 110,
       "mean_rating": 2.28,
-      "total_upvotes": 263
+      "total_upvotes": 266
     },
     {
       "theme_key": "login_roster_account",
@@ -132,7 +132,7 @@
       "pct_of_negative_reviews": 9.08,
       "positive_mentions": 178,
       "mean_rating": 2.77,
-      "total_upvotes": 361
+      "total_upvotes": 362
     },
     {
       "theme_key": "otp_notifications",
@@ -144,7 +144,7 @@
       "pct_of_negative_reviews": 8.74,
       "positive_mentions": 52,
       "mean_rating": 1.9,
-      "total_upvotes": 208
+      "total_upvotes": 209
     },
     {
       "theme_key": "support_desk_operations",
@@ -156,7 +156,7 @@
       "pct_of_negative_reviews": 5.87,
       "positive_mentions": 32,
       "mean_rating": 1.77,
-      "total_upvotes": 115
+      "total_upvotes": 116
     },
     {
       "theme_key": "ui_usability_prompts",
@@ -168,45 +168,45 @@
       "pct_of_negative_reviews": 5.53,
       "positive_mentions": 266,
       "mean_rating": 3.61,
-      "total_upvotes": 236
+      "total_upvotes": 237
     },
     {
       "theme_key": "positive_commute_experience",
       "label": "Positive Commute Feedback",
       "description": "Praise for timely rides, safety, user-friendly interface, smooth office commute, or great driver.",
-      "total_mentions": 4550,
-      "pct_of_all_reviews": 56.88,
+      "total_mentions": 4552,
+      "pct_of_all_reviews": 56.9,
       "negative_mentions": 118,
       "pct_of_negative_reviews": 4.98,
-      "positive_mentions": 4388,
+      "positive_mentions": 4390,
       "mean_rating": 4.78,
-      "total_upvotes": 306
+      "total_upvotes": 308
     }
   ],
   "monthly_trends": [
     {
       "year_month": "2023-12",
-      "review_count": 104,
-      "mean_rating": 3.64,
+      "review_count": 102,
+      "mean_rating": 3.62,
       "negative_count": 32,
-      "positive_count": 68,
-      "negative_rate": 30.77
+      "positive_count": 66,
+      "negative_rate": 31.37
     },
     {
       "year_month": "2024-01",
-      "review_count": 245,
-      "mean_rating": 3.61,
-      "negative_count": 76,
-      "positive_count": 159,
-      "negative_rate": 31.02
+      "review_count": 247,
+      "mean_rating": 3.6,
+      "negative_count": 77,
+      "positive_count": 160,
+      "negative_rate": 31.17
     },
     {
       "year_month": "2024-02",
-      "review_count": 209,
-      "mean_rating": 3.53,
-      "negative_count": 72,
-      "positive_count": 131,
-      "negative_rate": 34.45
+      "review_count": 207,
+      "mean_rating": 3.54,
+      "negative_count": 71,
+      "positive_count": 130,
+      "negative_rate": 34.3
     },
     {
       "year_month": "2024-03",
@@ -218,75 +218,75 @@
     },
     {
       "year_month": "2024-04",
-      "review_count": 211,
-      "mean_rating": 3.56,
+      "review_count": 214,
+      "mean_rating": 3.58,
       "negative_count": 68,
-      "positive_count": 135,
-      "negative_rate": 32.23
+      "positive_count": 138,
+      "negative_rate": 31.78
     },
     {
       "year_month": "2024-05",
-      "review_count": 218,
-      "mean_rating": 3.71,
-      "negative_count": 61,
-      "positive_count": 146,
-      "negative_rate": 27.98
+      "review_count": 216,
+      "mean_rating": 3.68,
+      "negative_count": 62,
+      "positive_count": 143,
+      "negative_rate": 28.7
     },
     {
       "year_month": "2024-06",
-      "review_count": 213,
-      "mean_rating": 3.62,
-      "negative_count": 65,
+      "review_count": 212,
+      "mean_rating": 3.64,
+      "negative_count": 64,
       "positive_count": 138,
-      "negative_rate": 30.52
+      "negative_rate": 30.19
     },
     {
       "year_month": "2024-07",
-      "review_count": 295,
-      "mean_rating": 3.56,
-      "negative_count": 97,
+      "review_count": 296,
+      "mean_rating": 3.55,
+      "negative_count": 98,
       "positive_count": 189,
-      "negative_rate": 32.88
+      "negative_rate": 33.11
     },
     {
       "year_month": "2024-08",
-      "review_count": 191,
-      "mean_rating": 3.61,
-      "negative_count": 60,
+      "review_count": 190,
+      "mean_rating": 3.62,
+      "negative_count": 59,
       "positive_count": 124,
-      "negative_rate": 31.41
+      "negative_rate": 31.05
     },
     {
       "year_month": "2024-09",
-      "review_count": 225,
-      "mean_rating": 3.64,
+      "review_count": 226,
+      "mean_rating": 3.65,
       "negative_count": 71,
-      "positive_count": 150,
-      "negative_rate": 31.56
+      "positive_count": 151,
+      "negative_rate": 31.42
     },
     {
       "year_month": "2024-10",
-      "review_count": 266,
+      "review_count": 265,
       "mean_rating": 3.73,
       "negative_count": 77,
-      "positive_count": 180,
-      "negative_rate": 28.95
+      "positive_count": 179,
+      "negative_rate": 29.06
     },
     {
       "year_month": "2024-11",
-      "review_count": 221,
+      "review_count": 222,
       "mean_rating": 3.71,
       "negative_count": 65,
-      "positive_count": 150,
-      "negative_rate": 29.41
+      "positive_count": 151,
+      "negative_rate": 29.28
     },
     {
       "year_month": "2024-12",
-      "review_count": 209,
-      "mean_rating": 3.78,
+      "review_count": 208,
+      "mean_rating": 3.77,
       "negative_count": 57,
-      "positive_count": 148,
-      "negative_rate": 27.27
+      "positive_count": 147,
+      "negative_rate": 27.4
     },
     {
       "year_month": "2025-01",
@@ -298,11 +298,11 @@
     },
     {
       "year_month": "2025-02",
-      "review_count": 229,
-      "mean_rating": 3.46,
+      "review_count": 230,
+      "mean_rating": 3.47,
       "negative_count": 84,
-      "positive_count": 140,
-      "negative_rate": 36.68
+      "positive_count": 141,
+      "negative_rate": 36.52
     },
     {
       "year_month": "2025-03",
@@ -314,43 +314,43 @@
     },
     {
       "year_month": "2025-04",
-      "review_count": 228,
+      "review_count": 231,
       "mean_rating": 3.84,
-      "negative_count": 60,
-      "positive_count": 163,
-      "negative_rate": 26.32
+      "negative_count": 61,
+      "positive_count": 165,
+      "negative_rate": 26.41
     },
     {
       "year_month": "2025-05",
-      "review_count": 257,
-      "mean_rating": 3.8,
-      "negative_count": 73,
-      "positive_count": 178,
-      "negative_rate": 28.4
+      "review_count": 253,
+      "mean_rating": 3.79,
+      "negative_count": 72,
+      "positive_count": 175,
+      "negative_rate": 28.46
     },
     {
       "year_month": "2025-06",
-      "review_count": 301,
-      "mean_rating": 3.56,
-      "negative_count": 100,
+      "review_count": 302,
+      "mean_rating": 3.55,
+      "negative_count": 101,
       "positive_count": 190,
-      "negative_rate": 33.22
+      "negative_rate": 33.44
     },
     {
       "year_month": "2025-07",
-      "review_count": 293,
-      "mean_rating": 3.78,
+      "review_count": 295,
+      "mean_rating": 3.79,
       "negative_count": 76,
-      "positive_count": 205,
-      "negative_rate": 25.94
+      "positive_count": 207,
+      "negative_rate": 25.76
     },
     {
       "year_month": "2025-08",
-      "review_count": 241,
-      "mean_rating": 3.68,
-      "negative_count": 73,
-      "positive_count": 161,
-      "negative_rate": 30.29
+      "review_count": 237,
+      "mean_rating": 3.67,
+      "negative_count": 72,
+      "positive_count": 158,
+      "negative_rate": 30.38
     },
     {
       "year_month": "2025-09",
@@ -362,19 +362,19 @@
     },
     {
       "year_month": "2025-10",
-      "review_count": 297,
+      "review_count": 300,
       "mean_rating": 3.79,
       "negative_count": 80,
-      "positive_count": 206,
-      "negative_rate": 26.94
+      "positive_count": 208,
+      "negative_rate": 26.67
     },
     {
       "year_month": "2025-11",
-      "review_count": 160,
-      "mean_rating": 3.69,
+      "review_count": 157,
+      "mean_rating": 3.68,
       "negative_count": 48,
-      "positive_count": 108,
-      "negative_rate": 30.0
+      "positive_count": 106,
+      "negative_rate": 30.57
     },
     {
       "year_month": "2025-12",
@@ -386,19 +386,19 @@
     },
     {
       "year_month": "2026-01",
-      "review_count": 211,
-      "mean_rating": 3.77,
+      "review_count": 214,
+      "mean_rating": 3.78,
       "negative_count": 60,
-      "positive_count": 143,
-      "negative_rate": 28.44
+      "positive_count": 146,
+      "negative_rate": 28.04
     },
     {
       "year_month": "2026-02",
-      "review_count": 207,
-      "mean_rating": 3.74,
+      "review_count": 204,
+      "mean_rating": 3.73,
       "negative_count": 62,
-      "positive_count": 144,
-      "negative_rate": 29.95
+      "positive_count": 141,
+      "negative_rate": 30.39
     },
     {
       "year_month": "2026-03",
@@ -410,19 +410,19 @@
     },
     {
       "year_month": "2026-04",
-      "review_count": 292,
-      "mean_rating": 4.03,
+      "review_count": 295,
+      "mean_rating": 4.04,
       "negative_count": 64,
-      "positive_count": 225,
-      "negative_rate": 21.92
+      "positive_count": 228,
+      "negative_rate": 21.69
     },
     {
       "year_month": "2026-05",
-      "review_count": 247,
-      "mean_rating": 4.02,
-      "negative_count": 53,
-      "positive_count": 185,
-      "negative_rate": 21.46
+      "review_count": 245,
+      "mean_rating": 3.99,
+      "negative_count": 54,
+      "positive_count": 182,
+      "negative_rate": 22.04
     },
     {
       "year_month": "2026-06",
@@ -434,19 +434,19 @@
     },
     {
       "year_month": "2026-07",
-      "review_count": 285,
-      "mean_rating": 4.01,
-      "negative_count": 66,
-      "positive_count": 213,
-      "negative_rate": 23.16
+      "review_count": 286,
+      "mean_rating": 4.03,
+      "negative_count": 65,
+      "positive_count": 215,
+      "negative_rate": 22.73
     },
     {
       "year_month": "2026-08",
-      "review_count": 242,
+      "review_count": 241,
       "mean_rating": 3.65,
       "negative_count": 77,
-      "positive_count": 156,
-      "negative_rate": 31.82
+      "positive_count": 155,
+      "negative_rate": 31.95
     },
     {
       "year_month": "2026-09",
@@ -458,11 +458,11 @@
     },
     {
       "year_month": "2026-10",
-      "review_count": 79,
-      "mean_rating": 3.7,
+      "review_count": 81,
+      "mean_rating": 3.74,
       "negative_count": 25,
-      "positive_count": 53,
-      "negative_rate": 31.65
+      "positive_count": 55,
+      "negative_rate": 30.86
     }
   ],
   "version_performance": [
@@ -551,18 +551,18 @@
       "negative_pct": 26.35
     },
     {
-      "version": "12.3",
-      "review_count": 153,
-      "mean_rating": 3.64,
-      "negative_count": 48,
-      "negative_pct": 31.37
-    },
-    {
       "version": "12.2.1",
       "review_count": 152,
       "mean_rating": 3.81,
       "negative_count": 38,
       "negative_pct": 25.0
+    },
+    {
+      "version": "12.3",
+      "review_count": 152,
+      "mean_rating": 3.63,
+      "negative_count": 48,
+      "negative_pct": 31.58
     },
     {
       "version": "12.0",
@@ -621,18 +621,18 @@
       "negative_pct": 22.32
     },
     {
+      "version": "12.19.0",
+      "review_count": 105,
+      "mean_rating": 3.62,
+      "negative_count": 36,
+      "negative_pct": 34.29
+    },
+    {
       "version": "12.8.3",
       "review_count": 105,
       "mean_rating": 3.68,
       "negative_count": 33,
       "negative_pct": 31.43
-    },
-    {
-      "version": "12.19.0",
-      "review_count": 102,
-      "mean_rating": 3.58,
-      "negative_count": 36,
-      "negative_pct": 35.29
     },
     {
       "version": "12.10.2",
@@ -712,13 +712,6 @@
       "negative_pct": 22.89
     },
     {
-      "version": "11.4.7",
-      "review_count": 82,
-      "mean_rating": 3.67,
-      "negative_count": 24,
-      "negative_pct": 29.27
-    },
-    {
       "version": "12.10",
       "review_count": 82,
       "mean_rating": 4.11,
@@ -731,6 +724,13 @@
       "mean_rating": 3.7,
       "negative_count": 25,
       "negative_pct": 30.86
+    },
+    {
+      "version": "11.4.7",
+      "review_count": 80,
+      "mean_rating": 3.64,
+      "negative_count": 24,
+      "negative_pct": 30.0
     },
     {
       "version": "12.12.2",
@@ -907,7 +907,7 @@
     "gps_live_tracking": [
       {
         "rating": 1,
-        "date": "2024-01-15",
+        "date": "2024-01-14",
         "version": "11.4.13",
         "upvotes": 51,
         "text": "One of the worst app. While tracking the cab in map. It's automatically zooming out after 3 4 seconds. Have to zoom in again. It's very frustrating. Besides the tracking is not accurate. OTPs are changing all of sudden. Worst case I've ever faced in the app is, OTP changed after my trip started and the end OTP is not accepting. You guys really have to look into this issues."
@@ -1057,7 +1057,7 @@
     "otp_notifications": [
       {
         "rating": 1,
-        "date": "2024-01-15",
+        "date": "2024-01-14",
         "version": "11.4.13",
         "upvotes": 51,
         "text": "One of the worst app. While tracking the cab in map. It's automatically zooming out after 3 4 seconds. Have to zoom in again. It's very frustrating. Besides the tracking is not accurate. OTPs are changing all of sudden. Worst case I've ever faced in the app is, OTP changed after my trip started and the end OTP is not accepting. You guys really have to look into this issues."
@@ -1080,7 +1080,7 @@
         "rating": 1,
         "date": "2026-06-11",
         "version": "12.13.1",
-        "upvotes": 8,
+        "upvotes": 9,
         "text": "The GPS tracking system is often unreliable and sometimes shows the driver at an incorrect location, which can lead to unnecessary delays. In addition, the estimated arrival time displayed by the GPS tracker is frequently inaccurate, and the pickup time is rarely synchronized correctly. This has occasionally resulted in missed cab pickups. Notifications are also often delayed or, at times, not received at all, causing me to miss important updates regarding my ride."
       }
     ],
@@ -1154,7 +1154,7 @@
       },
       {
         "rating": 1,
-        "date": "2024-01-15",
+        "date": "2024-01-14",
         "version": "11.4.13",
         "upvotes": 51,
         "text": "One of the worst app. While tracking the cab in map. It's automatically zooming out after 3 4 seconds. Have to zoom in again. It's very frustrating. Besides the tracking is not accurate. OTPs are changing all of sudden. Worst case I've ever faced in the app is, OTP changed after my trip started and the end OTP is not accepting. You guys really have to look into this issues."
@@ -1191,7 +1191,7 @@
       },
       {
         "rating": 2,
-        "date": "2025-05-26",
+        "date": "2025-05-25",
         "version": "11.5.20",
         "upvotes": 4,
         "text": "As an employee, I appreciate the flexibility and convenience this app offers. The ability to add personalized pickup instructions would be great cause in my community they would not let a cab wait for 15 mins. I can specify exactly how I want my pickup to go down whether it's requesting the driver to arrive a certain number of minutes before my scheduled pickup time, calling me when they're a specific distance away, or even asking them to wait outside the street instead of coming inside."
