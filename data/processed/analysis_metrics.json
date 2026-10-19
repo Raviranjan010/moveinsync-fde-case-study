@@ -1,47 +1,47 @@
 {
   "summary": {
     "total_reviews": 8000,
-    "average_rating": 3.707,
+    "average_rating": 3.708,
     "median_rating": 5.0,
     "date_range": {
-      "start": "2023-12-16",
-      "end": "2026-10-11"
+      "start": "2023-12-23",
+      "end": "2026-10-17"
     },
     "rating_distribution_counts": {
-      "1": 2094,
-      "2": 275,
-      "3": 243,
-      "4": 654,
-      "5": 4734
+      "1": 2096,
+      "2": 272,
+      "3": 244,
+      "4": 649,
+      "5": 4739
     },
     "rating_distribution_percentages": {
-      "1": 26.17,
-      "2": 3.44,
-      "3": 3.04,
-      "4": 8.18,
-      "5": 59.17
+      "1": 26.2,
+      "2": 3.4,
+      "3": 3.05,
+      "4": 8.11,
+      "5": 59.24
     },
     "sentiment_counts": {
       "Positive": 5388,
-      "Negative": 2369,
-      "Neutral": 243
+      "Negative": 2368,
+      "Neutral": 244
     },
     "sentiment_percentages": {
       "Positive": 67.35,
-      "Negative": 29.61,
-      "Neutral": 3.04
+      "Negative": 29.6,
+      "Neutral": 3.05
     },
-    "total_negative_reviews": 2369,
-    "negative_review_rate_pct": 29.61,
+    "total_negative_reviews": 2368,
+    "negative_review_rate_pct": 29.6,
     "denominator_total_reviews": 8000,
-    "denominator_negative_reviews": 2369
+    "denominator_negative_reviews": 2368
   },
   "baseline_reconciliation": {
-    "store_score": 4.6387,
-    "store_ratings_count": 114879,
-    "store_reviews_count": 23621,
-    "collected_at_utc": "2026-10-12T11:25:04.976952+00:00",
-    "sample_mean_rating": 3.707,
+    "store_score": 4.6401,
+    "store_ratings_count": 115145,
+    "store_reviews_count": 23665,
+    "collected_at_utc": "2026-10-19T09:22:57.923944+00:00",
+    "sample_mean_rating": 3.708,
     "sample_size": 8000,
     "note": "The store score counts every star rating; the sample counts only written reviews, and people with a bad trip are more likely to write one, so the sample mean is lower."
   },
@@ -54,37 +54,37 @@
       "theme_key": "general_dissatisfaction",
       "label": "General Dissatisfaction",
       "description": "Generic negative sentiment and frustration without a specific technical feature specified.",
-      "total_mentions": 790,
-      "pct_of_all_reviews": 9.88,
-      "negative_mentions": 768,
-      "pct_of_negative_reviews": 32.42,
+      "total_mentions": 796,
+      "pct_of_all_reviews": 9.95,
+      "negative_mentions": 774,
+      "pct_of_negative_reviews": 32.69,
       "positive_mentions": 16,
       "mean_rating": 1.13,
-      "total_upvotes": 334
+      "total_upvotes": 337
     },
     {
       "theme_key": "app_performance_crash",
       "label": "App Crashes & Performance",
       "description": "App crashing, freezing, blank screens, loading failures, or update breaking the app.",
-      "total_mentions": 622,
-      "pct_of_all_reviews": 7.78,
-      "negative_mentions": 462,
-      "pct_of_negative_reviews": 19.5,
-      "positive_mentions": 105,
+      "total_mentions": 624,
+      "pct_of_all_reviews": 7.8,
+      "negative_mentions": 463,
+      "pct_of_negative_reviews": 19.55,
+      "positive_mentions": 106,
       "mean_rating": 1.9,
-      "total_upvotes": 282
+      "total_upvotes": 283
     },
     {
       "theme_key": "gps_live_tracking",
       "label": "GPS & Live Tracking Glitches",
       "description": "Inaccurate ETA, map auto-zooming out, vehicle marker frozen, route mismatch, or location delay.",
-      "total_mentions": 679,
-      "pct_of_all_reviews": 8.49,
+      "total_mentions": 678,
+      "pct_of_all_reviews": 8.48,
       "negative_mentions": 372,
-      "pct_of_negative_reviews": 15.7,
-      "positive_mentions": 255,
-      "mean_rating": 2.62,
-      "total_upvotes": 431
+      "pct_of_negative_reviews": 15.71,
+      "positive_mentions": 254,
+      "mean_rating": 2.61,
+      "total_upvotes": 435
     },
     {
       "theme_key": "booking_roster_flow",
@@ -92,11 +92,11 @@
       "description": "Self-booking failures, confusion between login/logout shift timings, slot cutoff, waitlist issues.",
       "total_mentions": 442,
       "pct_of_all_reviews": 5.53,
-      "negative_mentions": 273,
-      "pct_of_negative_reviews": 11.52,
-      "positive_mentions": 141,
-      "mean_rating": 2.39,
-      "total_upvotes": 303
+      "negative_mentions": 271,
+      "pct_of_negative_reviews": 11.44,
+      "positive_mentions": 143,
+      "mean_rating": 2.4,
+      "total_upvotes": 304
     },
     {
       "theme_key": "vehicle_delay_pickup",
@@ -108,89 +108,89 @@
       "pct_of_negative_reviews": 10.64,
       "positive_mentions": 110,
       "mean_rating": 2.28,
-      "total_upvotes": 266
+      "total_upvotes": 269
     },
     {
       "theme_key": "login_roster_account",
       "label": "Login, SSO & Session Expiry",
       "description": "Frequent automatic logouts, SSO sign-in failures, credentials rejected, or account locked.",
-      "total_mentions": 262,
-      "pct_of_all_reviews": 3.28,
+      "total_mentions": 263,
+      "pct_of_all_reviews": 3.29,
       "negative_mentions": 227,
-      "pct_of_negative_reviews": 9.58,
-      "positive_mentions": 15,
-      "mean_rating": 1.47,
+      "pct_of_negative_reviews": 9.59,
+      "positive_mentions": 16,
+      "mean_rating": 1.48,
       "total_upvotes": 150
     },
     {
       "theme_key": "driver_behavior_safety",
       "label": "Driver Conduct & Commute Safety",
       "description": "Rash driving, speeding, rude demeanor, refusal to turn on AC, unauthorized driver, safety concerns.",
-      "total_mentions": 426,
-      "pct_of_all_reviews": 5.33,
+      "total_mentions": 428,
+      "pct_of_all_reviews": 5.35,
       "negative_mentions": 215,
       "pct_of_negative_reviews": 9.08,
-      "positive_mentions": 178,
-      "mean_rating": 2.77,
+      "positive_mentions": 180,
+      "mean_rating": 2.78,
       "total_upvotes": 362
     },
     {
       "theme_key": "otp_notifications",
       "label": "OTP & Notification Friction",
       "description": "Delayed OTP SMS, seatbelt modal blocking instant OTP retrieval, missing ride alerts, push notification spam.",
-      "total_mentions": 278,
-      "pct_of_all_reviews": 3.48,
-      "negative_mentions": 207,
-      "pct_of_negative_reviews": 8.74,
-      "positive_mentions": 52,
-      "mean_rating": 1.9,
-      "total_upvotes": 209
+      "total_mentions": 281,
+      "pct_of_all_reviews": 3.51,
+      "negative_mentions": 208,
+      "pct_of_negative_reviews": 8.78,
+      "positive_mentions": 55,
+      "mean_rating": 1.93,
+      "total_upvotes": 210
     },
     {
       "theme_key": "support_desk_operations",
       "label": "Support Desk & Issue Resolution",
       "description": "Transport desk unresponsive, tickets closed without solution, lack of real-time support during incidents.",
-      "total_mentions": 172,
-      "pct_of_all_reviews": 2.15,
-      "negative_mentions": 139,
-      "pct_of_negative_reviews": 5.87,
+      "total_mentions": 174,
+      "pct_of_all_reviews": 2.17,
+      "negative_mentions": 141,
+      "pct_of_negative_reviews": 5.95,
       "positive_mentions": 32,
-      "mean_rating": 1.77,
-      "total_upvotes": 116
+      "mean_rating": 1.76,
+      "total_upvotes": 119
     },
     {
       "theme_key": "ui_usability_prompts",
       "label": "UI Usability & Forced Rating Prompts",
       "description": "Forced rating prompt with no skip button, confusing UI redesigns, clunky navigation.",
-      "total_mentions": 414,
-      "pct_of_all_reviews": 5.17,
-      "negative_mentions": 131,
-      "pct_of_negative_reviews": 5.53,
-      "positive_mentions": 266,
-      "mean_rating": 3.61,
-      "total_upvotes": 237
+      "total_mentions": 412,
+      "pct_of_all_reviews": 5.15,
+      "negative_mentions": 128,
+      "pct_of_negative_reviews": 5.41,
+      "positive_mentions": 268,
+      "mean_rating": 3.63,
+      "total_upvotes": 238
     },
     {
       "theme_key": "positive_commute_experience",
       "label": "Positive Commute Feedback",
       "description": "Praise for timely rides, safety, user-friendly interface, smooth office commute, or great driver.",
-      "total_mentions": 4552,
-      "pct_of_all_reviews": 56.9,
-      "negative_mentions": 118,
-      "pct_of_negative_reviews": 4.98,
-      "positive_mentions": 4390,
+      "total_mentions": 4548,
+      "pct_of_all_reviews": 56.85,
+      "negative_mentions": 116,
+      "pct_of_negative_reviews": 4.9,
+      "positive_mentions": 4388,
       "mean_rating": 4.78,
-      "total_upvotes": 308
+      "total_upvotes": 314
     }
   ],
   "monthly_trends": [
     {
       "year_month": "2023-12",
-      "review_count": 102,
-      "mean_rating": 3.62,
-      "negative_count": 32,
-      "positive_count": 66,
-      "negative_rate": 31.37
+      "review_count": 52,
+      "mean_rating": 3.38,
+      "negative_count": 19,
+      "positive_count": 29,
+      "negative_rate": 36.54
     },
     {
       "year_month": "2024-01",
@@ -402,11 +402,11 @@
     },
     {
       "year_month": "2026-03",
-      "review_count": 197,
+      "review_count": 196,
       "mean_rating": 3.98,
       "negative_count": 46,
       "positive_count": 145,
-      "negative_rate": 23.35
+      "negative_rate": 23.47
     },
     {
       "year_month": "2026-04",
@@ -450,19 +450,19 @@
     },
     {
       "year_month": "2026-09",
-      "review_count": 245,
-      "mean_rating": 3.84,
-      "negative_count": 68,
-      "positive_count": 173,
-      "negative_rate": 27.76
+      "review_count": 243,
+      "mean_rating": 3.85,
+      "negative_count": 67,
+      "positive_count": 172,
+      "negative_rate": 27.57
     },
     {
       "year_month": "2026-10",
-      "review_count": 81,
-      "mean_rating": 3.74,
-      "negative_count": 25,
-      "positive_count": 55,
-      "negative_rate": 30.86
+      "review_count": 134,
+      "mean_rating": 3.8,
+      "negative_count": 38,
+      "positive_count": 93,
+      "negative_rate": 28.36
     }
   ],
   "version_performance": [
@@ -601,10 +601,10 @@
     },
     {
       "version": "12.17.0",
-      "review_count": 141,
-      "mean_rating": 3.76,
-      "negative_count": 42,
-      "negative_pct": 29.79
+      "review_count": 142,
+      "mean_rating": 3.74,
+      "negative_count": 43,
+      "negative_pct": 30.28
     },
     {
       "version": "12.4",
@@ -614,18 +614,18 @@
       "negative_pct": 32.14
     },
     {
-      "version": "12.12.3",
-      "review_count": 112,
-      "mean_rating": 4.02,
-      "negative_count": 25,
-      "negative_pct": 22.32
+      "version": "12.19.0",
+      "review_count": 122,
+      "mean_rating": 3.74,
+      "negative_count": 38,
+      "negative_pct": 31.15
     },
     {
-      "version": "12.19.0",
-      "review_count": 105,
-      "mean_rating": 3.62,
-      "negative_count": 36,
-      "negative_pct": 34.29
+      "version": "12.12.3",
+      "review_count": 113,
+      "mean_rating": 4.03,
+      "negative_count": 25,
+      "negative_pct": 22.12
     },
     {
       "version": "12.8.3",
@@ -664,10 +664,10 @@
     },
     {
       "version": "12.18.1",
-      "review_count": 94,
-      "mean_rating": 3.9,
-      "negative_count": 25,
-      "negative_pct": 26.6
+      "review_count": 93,
+      "mean_rating": 3.94,
+      "negative_count": 24,
+      "negative_pct": 25.81
     },
     {
       "version": "12.7.2",
@@ -713,10 +713,10 @@
     },
     {
       "version": "12.10",
-      "review_count": 82,
-      "mean_rating": 4.11,
+      "review_count": 81,
+      "mean_rating": 4.12,
       "negative_count": 16,
-      "negative_pct": 19.51
+      "negative_pct": 19.75
     },
     {
       "version": "12.9.4",
@@ -724,13 +724,6 @@
       "mean_rating": 3.7,
       "negative_count": 25,
       "negative_pct": 30.86
-    },
-    {
-      "version": "11.4.7",
-      "review_count": 80,
-      "mean_rating": 3.64,
-      "negative_count": 24,
-      "negative_pct": 30.0
     },
     {
       "version": "12.12.2",
@@ -803,6 +796,13 @@
       "negative_pct": 27.08
     },
     {
+      "version": "11.4.7",
+      "review_count": 40,
+      "mean_rating": 3.4,
+      "negative_count": 14,
+      "negative_pct": 35.0
+    },
+    {
       "version": "12.14.0",
       "review_count": 38,
       "mean_rating": 3.37,
@@ -824,18 +824,18 @@
       "negative_pct": 36.84
     },
     {
-      "version": "11.4.12",
-      "review_count": 36,
-      "mean_rating": 3.19,
-      "negative_count": 15,
-      "negative_pct": 41.67
-    },
-    {
       "version": "12.13.0",
       "review_count": 36,
       "mean_rating": 3.69,
       "negative_count": 11,
       "negative_pct": 30.56
+    },
+    {
+      "version": "11.4.12",
+      "review_count": 35,
+      "mean_rating": 3.14,
+      "negative_count": 15,
+      "negative_pct": 42.86
     },
     {
       "version": "11.5.14",
@@ -855,6 +855,13 @@
       "version": "11.4.33",
       "review_count": 32,
       "mean_rating": 3.44,
+      "negative_count": 10,
+      "negative_pct": 31.25
+    },
+    {
+      "version": "12.20.0",
+      "review_count": 32,
+      "mean_rating": 3.59,
       "negative_count": 10,
       "negative_pct": 31.25
     },
