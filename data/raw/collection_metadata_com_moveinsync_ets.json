@@ -1,18 +1,18 @@
 {
-  "collection_timestamp_utc": "2026-10-19T09:22:57.923944+00:00",
+  "collection_timestamp_utc": "2026-10-26T09:26:55.626542+00:00",
   "collection_method": "google_play_scraper_api",
   "app_id": "com.moveinsync.ets",
   "app_title": "MoveInSync",
   "developer": "MoveInSync: Enabling Hybrid Workplaces",
-  "current_store_score": 4.6401,
-  "store_ratings_count": 115145,
-  "store_reviews_count": 23665,
+  "current_store_score": 4.6407,
+  "store_ratings_count": 115412,
+  "store_reviews_count": 23706,
   "installs": "1,000,000+",
   "store_url": "https://play.google.com/store/apps/details?id=com.moveinsync.ets",
   "collected_sample_size": 8000,
   "date_range": {
-    "earliest_review_date": "2023-12-23T00:30:23",
-    "latest_review_date": "2026-10-17T23:56:07"
+    "earliest_review_date": "2023-12-28T21:28:21",
+    "latest_review_date": "2026-10-24T20:57:36"
   },
   "query_parameters": {
     "language": "en",
