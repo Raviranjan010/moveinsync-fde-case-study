@@ -1,47 +1,47 @@
 {
   "summary": {
     "total_reviews": 8000,
-    "average_rating": 3.712,
+    "average_rating": 3.716,
     "median_rating": 5.0,
     "date_range": {
-      "start": "2023-12-28",
-      "end": "2026-10-24"
+      "start": "2024-01-05",
+      "end": "2026-11-01"
     },
     "rating_distribution_counts": {
-      "1": 2091,
+      "1": 2085,
       "2": 272,
-      "3": 240,
-      "4": 646,
-      "5": 4751
+      "3": 239,
+      "4": 642,
+      "5": 4762
     },
     "rating_distribution_percentages": {
-      "1": 26.14,
+      "1": 26.06,
       "2": 3.4,
-      "3": 3.0,
-      "4": 8.08,
-      "5": 59.39
+      "3": 2.99,
+      "4": 8.03,
+      "5": 59.52
     },
     "sentiment_counts": {
-      "Positive": 5397,
-      "Negative": 2363,
-      "Neutral": 240
+      "Positive": 5404,
+      "Negative": 2357,
+      "Neutral": 239
     },
     "sentiment_percentages": {
-      "Positive": 67.46,
-      "Negative": 29.54,
-      "Neutral": 3.0
+      "Positive": 67.55,
+      "Negative": 29.46,
+      "Neutral": 2.99
     },
-    "total_negative_reviews": 2363,
-    "negative_review_rate_pct": 29.54,
+    "total_negative_reviews": 2357,
+    "negative_review_rate_pct": 29.46,
     "denominator_total_reviews": 8000,
-    "denominator_negative_reviews": 2363
+    "denominator_negative_reviews": 2357
   },
   "baseline_reconciliation": {
-    "store_score": 4.6407,
-    "store_ratings_count": 115412,
-    "store_reviews_count": 23706,
-    "collected_at_utc": "2026-10-26T09:26:55.626542+00:00",
-    "sample_mean_rating": 3.712,
+    "store_score": 4.6398,
+    "store_ratings_count": 115727,
+    "store_reviews_count": 23753,
+    "collected_at_utc": "2026-11-02T11:45:29.115704+00:00",
+    "sample_mean_rating": 3.716,
     "sample_size": 8000,
     "note": "The store score counts every star rating; the sample counts only written reviews, and people with a bad trip are more likely to write one, so the sample mean is lower."
   },
@@ -54,49 +54,49 @@
       "theme_key": "general_dissatisfaction",
       "label": "General Dissatisfaction",
       "description": "Generic negative sentiment and frustration without a specific technical feature specified.",
-      "total_mentions": 794,
-      "pct_of_all_reviews": 9.93,
-      "negative_mentions": 772,
-      "pct_of_negative_reviews": 32.67,
+      "total_mentions": 793,
+      "pct_of_all_reviews": 9.91,
+      "negative_mentions": 771,
+      "pct_of_negative_reviews": 32.71,
       "positive_mentions": 16,
-      "mean_rating": 1.12,
-      "total_upvotes": 339
+      "mean_rating": 1.13,
+      "total_upvotes": 282
     },
     {
       "theme_key": "app_performance_crash",
       "label": "App Crashes & Performance",
       "description": "App crashing, freezing, blank screens, loading failures, or update breaking the app.",
-      "total_mentions": 621,
-      "pct_of_all_reviews": 7.76,
-      "negative_mentions": 461,
-      "pct_of_negative_reviews": 19.51,
-      "positive_mentions": 105,
-      "mean_rating": 1.9,
-      "total_upvotes": 287
+      "total_mentions": 615,
+      "pct_of_all_reviews": 7.69,
+      "negative_mentions": 460,
+      "pct_of_negative_reviews": 19.52,
+      "positive_mentions": 101,
+      "mean_rating": 1.88,
+      "total_upvotes": 289
     },
     {
       "theme_key": "gps_live_tracking",
       "label": "GPS & Live Tracking Glitches",
       "description": "Inaccurate ETA, map auto-zooming out, vehicle marker frozen, route mismatch, or location delay.",
-      "total_mentions": 674,
-      "pct_of_all_reviews": 8.43,
-      "negative_mentions": 369,
-      "pct_of_negative_reviews": 15.62,
-      "positive_mentions": 254,
+      "total_mentions": 672,
+      "pct_of_all_reviews": 8.4,
+      "negative_mentions": 368,
+      "pct_of_negative_reviews": 15.61,
+      "positive_mentions": 255,
       "mean_rating": 2.62,
-      "total_upvotes": 440
+      "total_upvotes": 445
     },
     {
       "theme_key": "booking_roster_flow",
       "label": "Booking & Roster Flow",
       "description": "Self-booking failures, confusion between login/logout shift timings, slot cutoff, waitlist issues.",
-      "total_mentions": 440,
-      "pct_of_all_reviews": 5.5,
+      "total_mentions": 442,
+      "pct_of_all_reviews": 5.53,
       "negative_mentions": 271,
-      "pct_of_negative_reviews": 11.47,
-      "positive_mentions": 141,
+      "pct_of_negative_reviews": 11.5,
+      "positive_mentions": 142,
       "mean_rating": 2.4,
-      "total_upvotes": 306
+      "total_upvotes": 309
     },
     {
       "theme_key": "vehicle_delay_pickup",
@@ -105,10 +105,10 @@
       "total_mentions": 391,
       "pct_of_all_reviews": 4.89,
       "negative_mentions": 250,
-      "pct_of_negative_reviews": 10.58,
+      "pct_of_negative_reviews": 10.61,
       "positive_mentions": 110,
-      "mean_rating": 2.29,
-      "total_upvotes": 277
+      "mean_rating": 2.28,
+      "total_upvotes": 283
     },
     {
       "theme_key": "login_roster_account",
@@ -117,7 +117,7 @@
       "total_mentions": 262,
       "pct_of_all_reviews": 3.28,
       "negative_mentions": 226,
-      "pct_of_negative_reviews": 9.56,
+      "pct_of_negative_reviews": 9.59,
       "positive_mentions": 16,
       "mean_rating": 1.48,
       "total_upvotes": 151
@@ -126,22 +126,22 @@
       "theme_key": "driver_behavior_safety",
       "label": "Driver Conduct & Commute Safety",
       "description": "Rash driving, speeding, rude demeanor, refusal to turn on AC, unauthorized driver, safety concerns.",
-      "total_mentions": 426,
-      "pct_of_all_reviews": 5.33,
+      "total_mentions": 430,
+      "pct_of_all_reviews": 5.38,
       "negative_mentions": 213,
-      "pct_of_negative_reviews": 9.01,
-      "positive_mentions": 180,
-      "mean_rating": 2.78,
-      "total_upvotes": 364
+      "pct_of_negative_reviews": 9.04,
+      "positive_mentions": 184,
+      "mean_rating": 2.8,
+      "total_upvotes": 302
     },
     {
       "theme_key": "otp_notifications",
       "label": "OTP & Notification Friction",
       "description": "Delayed OTP SMS, seatbelt modal blocking instant OTP retrieval, missing ride alerts, push notification spam.",
-      "total_mentions": 281,
-      "pct_of_all_reviews": 3.51,
-      "negative_mentions": 208,
-      "pct_of_negative_reviews": 8.8,
+      "total_mentions": 283,
+      "pct_of_all_reviews": 3.54,
+      "negative_mentions": 210,
+      "pct_of_negative_reviews": 8.91,
       "positive_mentions": 55,
       "mean_rating": 1.93,
       "total_upvotes": 218
@@ -153,52 +153,44 @@
       "total_mentions": 175,
       "pct_of_all_reviews": 2.19,
       "negative_mentions": 142,
-      "pct_of_negative_reviews": 6.01,
+      "pct_of_negative_reviews": 6.02,
       "positive_mentions": 32,
       "mean_rating": 1.76,
-      "total_upvotes": 121
+      "total_upvotes": 122
     },
     {
       "theme_key": "ui_usability_prompts",
       "label": "UI Usability & Forced Rating Prompts",
       "description": "Forced rating prompt with no skip button, confusing UI redesigns, clunky navigation.",
-      "total_mentions": 411,
-      "pct_of_all_reviews": 5.14,
-      "negative_mentions": 127,
-      "pct_of_negative_reviews": 5.37,
-      "positive_mentions": 268,
-      "mean_rating": 3.64,
-      "total_upvotes": 241
+      "total_mentions": 410,
+      "pct_of_all_reviews": 5.12,
+      "negative_mentions": 125,
+      "pct_of_negative_reviews": 5.3,
+      "positive_mentions": 269,
+      "mean_rating": 3.66,
+      "total_upvotes": 183
     },
     {
       "theme_key": "positive_commute_experience",
       "label": "Positive Commute Feedback",
       "description": "Praise for timely rides, safety, user-friendly interface, smooth office commute, or great driver.",
-      "total_mentions": 4556,
-      "pct_of_all_reviews": 56.95,
-      "negative_mentions": 118,
-      "pct_of_negative_reviews": 4.99,
-      "positive_mentions": 4396,
-      "mean_rating": 4.78,
-      "total_upvotes": 322
+      "total_mentions": 4561,
+      "pct_of_all_reviews": 57.01,
+      "negative_mentions": 117,
+      "pct_of_negative_reviews": 4.96,
+      "positive_mentions": 4402,
+      "mean_rating": 4.79,
+      "total_upvotes": 267
     }
   ],
   "monthly_trends": [
     {
-      "year_month": "2023-12",
-      "review_count": 11,
-      "mean_rating": 3.91,
-      "negative_count": 3,
-      "positive_count": 8,
-      "negative_rate": 27.27
-    },
-    {
       "year_month": "2024-01",
-      "review_count": 247,
-      "mean_rating": 3.6,
-      "negative_count": 77,
-      "positive_count": 160,
-      "negative_rate": 31.17
+      "review_count": 209,
+      "mean_rating": 3.67,
+      "negative_count": 62,
+      "positive_count": 139,
+      "negative_rate": 29.67
     },
     {
       "year_month": "2024-02",
@@ -458,20 +450,28 @@
     },
     {
       "year_month": "2026-10",
-      "review_count": 176,
-      "mean_rating": 3.83,
-      "negative_count": 50,
-      "positive_count": 123,
-      "negative_rate": 28.41
+      "review_count": 223,
+      "mean_rating": 3.87,
+      "negative_count": 61,
+      "positive_count": 158,
+      "negative_rate": 27.35
+    },
+    {
+      "year_month": "2026-11",
+      "review_count": 2,
+      "mean_rating": 3.0,
+      "negative_count": 1,
+      "positive_count": 1,
+      "negative_rate": 50.0
     }
   ],
   "version_performance": [
     {
       "version": "11.4.13",
-      "review_count": 575,
-      "mean_rating": 3.61,
-      "negative_count": 184,
-      "negative_pct": 32.0
+      "review_count": 544,
+      "mean_rating": 3.63,
+      "negative_count": 172,
+      "negative_pct": 31.62
     },
     {
       "version": "11.5.17",
@@ -593,18 +593,18 @@
       "negative_pct": 27.08
     },
     {
+      "version": "12.17.0",
+      "review_count": 143,
+      "mean_rating": 3.72,
+      "negative_count": 44,
+      "negative_pct": 30.77
+    },
+    {
       "version": "12.14.1",
       "review_count": 142,
       "mean_rating": 3.82,
       "negative_count": 39,
       "negative_pct": 27.46
-    },
-    {
-      "version": "12.17.0",
-      "review_count": 142,
-      "mean_rating": 3.74,
-      "negative_count": 43,
-      "negative_pct": 30.28
     },
     {
       "version": "12.4",
@@ -656,6 +656,13 @@
       "negative_pct": 18.18
     },
     {
+      "version": "12.20.0",
+      "review_count": 99,
+      "mean_rating": 3.86,
+      "negative_count": 27,
+      "negative_pct": 27.27
+    },
+    {
       "version": "12.13.1",
       "review_count": 95,
       "mean_rating": 3.68,
@@ -664,10 +671,10 @@
     },
     {
       "version": "12.18.1",
-      "review_count": 93,
-      "mean_rating": 3.94,
-      "negative_count": 24,
-      "negative_pct": 25.81
+      "review_count": 94,
+      "mean_rating": 3.9,
+      "negative_count": 25,
+      "negative_pct": 26.6
     },
     {
       "version": "12.7.2",
@@ -761,13 +768,6 @@
       "negative_pct": 20.9
     },
     {
-      "version": "12.20.0",
-      "review_count": 66,
-      "mean_rating": 3.64,
-      "negative_count": 22,
-      "negative_pct": 33.33
-    },
-    {
       "version": "12.18.0",
       "review_count": 65,
       "mean_rating": 4.11,
@@ -857,13 +857,6 @@
       "mean_rating": 4.55,
       "negative_count": 3,
       "negative_pct": 9.68
-    },
-    {
-      "version": "11.4.7",
-      "review_count": 29,
-      "mean_rating": 3.21,
-      "negative_count": 12,
-      "negative_pct": 41.38
     },
     {
       "version": "12.13.2",
@@ -960,7 +953,7 @@
         "rating": 2,
         "date": "2024-11-06",
         "version": "11.5.10",
-        "upvotes": 12,
+        "upvotes": 13,
         "text": "There are a few suggestions which if done will make the app more user friendly: 1. If the cab arrangement is irrespective of number of bookings, and the same (approx ~20 seater) traveller comes everyday, then probably the feature of booking the cab atleast a week before can be eliminated. 2. Since the user is same everytime, the terms and conditions can be agreed and accepted at the first login. It is annoying when it pops up twice every single time the app is opened."
       }
     ],
@@ -997,13 +990,6 @@
     "driver_behavior_safety": [
       {
         "rating": 1,
-        "date": "2024-01-02",
-        "version": "11.4.13",
-        "upvotes": 63,
-        "text": "It is the worst app. There is no transparency about the passenger who are traveling with you, it doesn't give real-time information. It's not user friendly. There is some or the other issues when it comes to contacting the driver. It is definitely not a helpful app. Any changes made to the app is to complicate things for users, the current version is always worst than previous one. I fail to understand what is the purpose of this app."
-      },
-      {
-        "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
         "upvotes": 27,
@@ -1022,6 +1008,13 @@
         "version": "12.2",
         "upvotes": 12,
         "text": "Could not call the bus driver at critical time, as if I click on the call button, it says like The company policy is not allowed to call. Because of this functionality, I have missed the bus some time. Even when I see the bus has started moving from my stop and crossing me, but I'm on the way to the bus a few feet.. could improve on this calling feature."
+      },
+      {
+        "rating": 1,
+        "date": "2026-06-11",
+        "version": "12.13.1",
+        "upvotes": 10,
+        "text": "The GPS tracking system is often unreliable and sometimes shows the driver at an incorrect location, which can lead to unnecessary delays. In addition, the estimated arrival time displayed by the GPS tracker is frequently inaccurate, and the pickup time is rarely synchronized correctly. This has occasionally resulted in missed cab pickups. Notifications are also often delayed or, at times, not received at all, causing me to miss important updates regarding my ride."
       }
     ],
     "login_roster_account": [
@@ -1036,7 +1029,7 @@
         "rating": 2,
         "date": "2024-11-06",
         "version": "11.5.10",
-        "upvotes": 12,
+        "upvotes": 13,
         "text": "There are a few suggestions which if done will make the app more user friendly: 1. If the cab arrangement is irrespective of number of bookings, and the same (approx ~20 seater) traveller comes everyday, then probably the feature of booking the cab atleast a week before can be eliminated. 2. Since the user is same everytime, the terms and conditions can be agreed and accepted at the first login. It is annoying when it pops up twice every single time the app is opened."
       },
       {
@@ -1087,13 +1080,6 @@
     "ui_usability_prompts": [
       {
         "rating": 1,
-        "date": "2024-01-02",
-        "version": "11.4.13",
-        "upvotes": 63,
-        "text": "It is the worst app. There is no transparency about the passenger who are traveling with you, it doesn't give real-time information. It's not user friendly. There is some or the other issues when it comes to contacting the driver. It is definitely not a helpful app. Any changes made to the app is to complicate things for users, the current version is always worst than previous one. I fail to understand what is the purpose of this app."
-      },
-      {
-        "rating": 1,
         "date": "2024-03-06",
         "version": "11.4.18",
         "upvotes": 34,
@@ -1110,8 +1096,15 @@
         "rating": 2,
         "date": "2024-11-06",
         "version": "11.5.10",
-        "upvotes": 12,
+        "upvotes": 13,
         "text": "There are a few suggestions which if done will make the app more user friendly: 1. If the cab arrangement is irrespective of number of bookings, and the same (approx ~20 seater) traveller comes everyday, then probably the feature of booking the cab atleast a week before can be eliminated. 2. Since the user is same everytime, the terms and conditions can be agreed and accepted at the first login. It is annoying when it pops up twice every single time the app is opened."
+      },
+      {
+        "rating": 1,
+        "date": "2025-07-16",
+        "version": "12.2",
+        "upvotes": 12,
+        "text": "Could not call the bus driver at critical time, as if I click on the call button, it says like The company policy is not allowed to call. Because of this functionality, I have missed the bus some time. Even when I see the bus has started moving from my stop and crossing me, but I'm on the way to the bus a few feet.. could improve on this calling feature."
       }
     ],
     "support_desk_operations": [
@@ -1147,13 +1140,6 @@
     "general_dissatisfaction": [
       {
         "rating": 1,
-        "date": "2024-01-02",
-        "version": "11.4.13",
-        "upvotes": 63,
-        "text": "It is the worst app. There is no transparency about the passenger who are traveling with you, it doesn't give real-time information. It's not user friendly. There is some or the other issues when it comes to contacting the driver. It is definitely not a helpful app. Any changes made to the app is to complicate things for users, the current version is always worst than previous one. I fail to understand what is the purpose of this app."
-      },
-      {
-        "rating": 1,
         "date": "2024-01-14",
         "version": "11.4.13",
         "upvotes": 52,
@@ -1172,16 +1158,16 @@
         "version": "11.4.13",
         "upvotes": 19,
         "text": "It's disgusting, worst and useless app. No matter how many times the user zoom in to see the cab location, the app is designed to zoom out immediately, show the cab location and office location and then again show only cab location on high level. Not sure if the architect has designed as per users convenience or for their comfort. Everyone shud gv 1 star rating and corporate shud decommission this app if this is not fixed."
+      },
+      {
+        "rating": 1,
+        "date": "2025-01-15",
+        "version": "11.5.17",
+        "upvotes": 15,
+        "text": "I had a very disappointing experience with Move In Sync. The cab was shown at a different location due to a glitch in the app, but the driver reached the correct location and left without picking me up. When I contacted the helpdesk for assistance, their response was unhelpful, and they did not communicate with me politely. The lack of cooperation and poor customer service was very frustrating."
       }
     ],
     "positive_commute_experience": [
-      {
-        "rating": 1,
-        "date": "2024-01-02",
-        "version": "11.4.13",
-        "upvotes": 63,
-        "text": "It is the worst app. There is no transparency about the passenger who are traveling with you, it doesn't give real-time information. It's not user friendly. There is some or the other issues when it comes to contacting the driver. It is definitely not a helpful app. Any changes made to the app is to complicate things for users, the current version is always worst than previous one. I fail to understand what is the purpose of this app."
-      },
       {
         "rating": 1,
         "date": "2024-07-22",
@@ -1193,7 +1179,7 @@
         "rating": 2,
         "date": "2025-05-25",
         "version": "11.5.20",
-        "upvotes": 4,
+        "upvotes": 5,
         "text": "As an employee, I appreciate the flexibility and convenience this app offers. The ability to add personalized pickup instructions would be great cause in my community they would not let a cab wait for 15 mins. I can specify exactly how I want my pickup to go down whether it's requesting the driver to arrive a certain number of minutes before my scheduled pickup time, calling me when they're a specific distance away, or even asking them to wait outside the street instead of coming inside."
       },
       {
@@ -1202,6 +1188,13 @@
         "version": "11.4.22",
         "upvotes": 2,
         "text": "Recently I observed that app is not showing all the scheduled rides. Instead it is showing only next 7 days which is not helpful. Also in the calender view there is no color coding on dates. It shoul be easy to read if calender dates are color coded if there is a scheduled ride on the date, ex: login- blue, logout -red,both-green. Also, if I schedule a ride over a date which already has a schedule or not, it generally shows override message. It should not show override alert if there is no schdl"
+      },
+      {
+        "rating": 1,
+        "date": "2025-12-02",
+        "version": "12.7.2",
+        "upvotes": 2,
+        "text": "Many issues with this app. some booking not reflected and not reflecting correctly on the driver's end. Thus making me look like a liar. RESULT? I HAVE 2 DRIVER'S AS AN ENEMY COMPLAINING TO ME. I AM SHOWING THE PROOF I HAVE MADE CORRECT BOOKINGS AND THEY DID NOT EVEN BOTHERED TO LOOK AT IT. AND THEY HAVE DISMISSED IT AND ALSO THE DRIVER'S HAVE ANGER ISSUES. JUST BY SEEING ME. SHOWING AGGRESSIVE ATTITUDE. LIKE WHAT? I DO NOT EVEN KNOW YOU AND YOUR NAME. App is not helpful \u2713"
       }
     ]
   }
