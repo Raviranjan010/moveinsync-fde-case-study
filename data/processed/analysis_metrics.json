@@ -1,47 +1,47 @@
 {
   "summary": {
     "total_reviews": 8000,
-    "average_rating": 3.716,
+    "average_rating": 3.717,
     "median_rating": 5.0,
     "date_range": {
-      "start": "2024-01-05",
-      "end": "2026-11-01"
+      "start": "2024-01-11",
+      "end": "2026-11-07"
     },
     "rating_distribution_counts": {
-      "1": 2085,
-      "2": 272,
-      "3": 239,
-      "4": 642,
-      "5": 4762
+      "1": 2084,
+      "2": 271,
+      "3": 238,
+      "4": 641,
+      "5": 4766
     },
     "rating_distribution_percentages": {
-      "1": 26.06,
-      "2": 3.4,
-      "3": 2.99,
-      "4": 8.03,
-      "5": 59.52
+      "1": 26.05,
+      "2": 3.39,
+      "3": 2.97,
+      "4": 8.01,
+      "5": 59.58
     },
     "sentiment_counts": {
-      "Positive": 5404,
-      "Negative": 2357,
-      "Neutral": 239
+      "Positive": 5407,
+      "Negative": 2355,
+      "Neutral": 238
     },
     "sentiment_percentages": {
-      "Positive": 67.55,
-      "Negative": 29.46,
-      "Neutral": 2.99
+      "Positive": 67.59,
+      "Negative": 29.44,
+      "Neutral": 2.97
     },
-    "total_negative_reviews": 2357,
-    "negative_review_rate_pct": 29.46,
+    "total_negative_reviews": 2355,
+    "negative_review_rate_pct": 29.44,
     "denominator_total_reviews": 8000,
-    "denominator_negative_reviews": 2357
+    "denominator_negative_reviews": 2355
   },
   "baseline_reconciliation": {
-    "store_score": 4.6398,
-    "store_ratings_count": 115727,
-    "store_reviews_count": 23753,
-    "collected_at_utc": "2026-11-02T11:45:29.115704+00:00",
-    "sample_mean_rating": 3.716,
+    "store_score": 4.6439,
+    "store_ratings_count": 116006,
+    "store_reviews_count": 23800,
+    "collected_at_utc": "2026-11-09T12:15:57.259678+00:00",
+    "sample_mean_rating": 3.717,
     "sample_size": 8000,
     "note": "The store score counts every star rating; the sample counts only written reviews, and people with a bad trip are more likely to write one, so the sample mean is lower."
   },
@@ -54,61 +54,61 @@
       "theme_key": "general_dissatisfaction",
       "label": "General Dissatisfaction",
       "description": "Generic negative sentiment and frustration without a specific technical feature specified.",
-      "total_mentions": 793,
-      "pct_of_all_reviews": 9.91,
-      "negative_mentions": 771,
-      "pct_of_negative_reviews": 32.71,
+      "total_mentions": 794,
+      "pct_of_all_reviews": 9.93,
+      "negative_mentions": 772,
+      "pct_of_negative_reviews": 32.78,
       "positive_mentions": 16,
       "mean_rating": 1.13,
-      "total_upvotes": 282
+      "total_upvotes": 283
     },
     {
       "theme_key": "app_performance_crash",
       "label": "App Crashes & Performance",
       "description": "App crashing, freezing, blank screens, loading failures, or update breaking the app.",
-      "total_mentions": 615,
-      "pct_of_all_reviews": 7.69,
-      "negative_mentions": 460,
-      "pct_of_negative_reviews": 19.52,
-      "positive_mentions": 101,
+      "total_mentions": 614,
+      "pct_of_all_reviews": 7.67,
+      "negative_mentions": 458,
+      "pct_of_negative_reviews": 19.45,
+      "positive_mentions": 103,
       "mean_rating": 1.88,
-      "total_upvotes": 289
+      "total_upvotes": 290
     },
     {
       "theme_key": "gps_live_tracking",
       "label": "GPS & Live Tracking Glitches",
       "description": "Inaccurate ETA, map auto-zooming out, vehicle marker frozen, route mismatch, or location delay.",
-      "total_mentions": 672,
-      "pct_of_all_reviews": 8.4,
-      "negative_mentions": 368,
-      "pct_of_negative_reviews": 15.61,
+      "total_mentions": 673,
+      "pct_of_all_reviews": 8.41,
+      "negative_mentions": 370,
+      "pct_of_negative_reviews": 15.71,
       "positive_mentions": 255,
       "mean_rating": 2.62,
-      "total_upvotes": 445
+      "total_upvotes": 446
     },
     {
       "theme_key": "booking_roster_flow",
       "label": "Booking & Roster Flow",
       "description": "Self-booking failures, confusion between login/logout shift timings, slot cutoff, waitlist issues.",
-      "total_mentions": 442,
-      "pct_of_all_reviews": 5.53,
+      "total_mentions": 440,
+      "pct_of_all_reviews": 5.5,
       "negative_mentions": 271,
-      "pct_of_negative_reviews": 11.5,
-      "positive_mentions": 142,
+      "pct_of_negative_reviews": 11.51,
+      "positive_mentions": 140,
       "mean_rating": 2.4,
-      "total_upvotes": 309
+      "total_upvotes": 310
     },
     {
       "theme_key": "vehicle_delay_pickup",
       "label": "Pickup Delays & Cab No-Show",
       "description": "Late vehicle arrival, incorrect pickup window, excessive waiting time, or driver not reaching point.",
-      "total_mentions": 391,
-      "pct_of_all_reviews": 4.89,
-      "negative_mentions": 250,
-      "pct_of_negative_reviews": 10.61,
+      "total_mentions": 387,
+      "pct_of_all_reviews": 4.84,
+      "negative_mentions": 245,
+      "pct_of_negative_reviews": 10.4,
       "positive_mentions": 110,
-      "mean_rating": 2.28,
-      "total_upvotes": 283
+      "mean_rating": 2.3,
+      "total_upvotes": 284
     },
     {
       "theme_key": "login_roster_account",
@@ -117,7 +117,7 @@
       "total_mentions": 262,
       "pct_of_all_reviews": 3.28,
       "negative_mentions": 226,
-      "pct_of_negative_reviews": 9.59,
+      "pct_of_negative_reviews": 9.6,
       "positive_mentions": 16,
       "mean_rating": 1.48,
       "total_upvotes": 151
@@ -126,59 +126,59 @@
       "theme_key": "driver_behavior_safety",
       "label": "Driver Conduct & Commute Safety",
       "description": "Rash driving, speeding, rude demeanor, refusal to turn on AC, unauthorized driver, safety concerns.",
-      "total_mentions": 430,
-      "pct_of_all_reviews": 5.38,
-      "negative_mentions": 213,
-      "pct_of_negative_reviews": 9.04,
-      "positive_mentions": 184,
-      "mean_rating": 2.8,
-      "total_upvotes": 302
+      "total_mentions": 428,
+      "pct_of_all_reviews": 5.35,
+      "negative_mentions": 215,
+      "pct_of_negative_reviews": 9.13,
+      "positive_mentions": 180,
+      "mean_rating": 2.77,
+      "total_upvotes": 303
     },
     {
       "theme_key": "otp_notifications",
       "label": "OTP & Notification Friction",
       "description": "Delayed OTP SMS, seatbelt modal blocking instant OTP retrieval, missing ride alerts, push notification spam.",
-      "total_mentions": 283,
-      "pct_of_all_reviews": 3.54,
-      "negative_mentions": 210,
-      "pct_of_negative_reviews": 8.91,
+      "total_mentions": 282,
+      "pct_of_all_reviews": 3.52,
+      "negative_mentions": 209,
+      "pct_of_negative_reviews": 8.87,
       "positive_mentions": 55,
       "mean_rating": 1.93,
-      "total_upvotes": 218
+      "total_upvotes": 219
     },
     {
       "theme_key": "support_desk_operations",
       "label": "Support Desk & Issue Resolution",
       "description": "Transport desk unresponsive, tickets closed without solution, lack of real-time support during incidents.",
-      "total_mentions": 175,
-      "pct_of_all_reviews": 2.19,
-      "negative_mentions": 142,
-      "pct_of_negative_reviews": 6.02,
-      "positive_mentions": 32,
-      "mean_rating": 1.76,
+      "total_mentions": 176,
+      "pct_of_all_reviews": 2.2,
+      "negative_mentions": 144,
+      "pct_of_negative_reviews": 6.11,
+      "positive_mentions": 31,
+      "mean_rating": 1.73,
       "total_upvotes": 122
     },
     {
       "theme_key": "ui_usability_prompts",
       "label": "UI Usability & Forced Rating Prompts",
       "description": "Forced rating prompt with no skip button, confusing UI redesigns, clunky navigation.",
-      "total_mentions": 410,
-      "pct_of_all_reviews": 5.12,
-      "negative_mentions": 125,
-      "pct_of_negative_reviews": 5.3,
-      "positive_mentions": 269,
-      "mean_rating": 3.66,
-      "total_upvotes": 183
+      "total_mentions": 407,
+      "pct_of_all_reviews": 5.09,
+      "negative_mentions": 123,
+      "pct_of_negative_reviews": 5.22,
+      "positive_mentions": 268,
+      "mean_rating": 3.67,
+      "total_upvotes": 182
     },
     {
       "theme_key": "positive_commute_experience",
       "label": "Positive Commute Feedback",
       "description": "Praise for timely rides, safety, user-friendly interface, smooth office commute, or great driver.",
-      "total_mentions": 4561,
-      "pct_of_all_reviews": 57.01,
-      "negative_mentions": 117,
-      "pct_of_negative_reviews": 4.96,
-      "positive_mentions": 4402,
+      "total_mentions": 4563,
+      "pct_of_all_reviews": 57.04,
+      "negative_mentions": 118,
+      "pct_of_negative_reviews": 5.01,
+      "positive_mentions": 4403,
       "mean_rating": 4.79,
       "total_upvotes": 267
     }
@@ -186,11 +186,11 @@
   "monthly_trends": [
     {
       "year_month": "2024-01",
-      "review_count": 209,
-      "mean_rating": 3.67,
-      "negative_count": 62,
-      "positive_count": 139,
-      "negative_rate": 29.67
+      "review_count": 158,
+      "mean_rating": 3.69,
+      "negative_count": 46,
+      "positive_count": 106,
+      "negative_rate": 29.11
     },
     {
       "year_month": "2024-02",
@@ -458,20 +458,20 @@
     },
     {
       "year_month": "2026-11",
-      "review_count": 2,
-      "mean_rating": 3.0,
-      "negative_count": 1,
-      "positive_count": 1,
-      "negative_rate": 50.0
+      "review_count": 53,
+      "mean_rating": 3.79,
+      "negative_count": 15,
+      "positive_count": 37,
+      "negative_rate": 28.3
     }
   ],
   "version_performance": [
     {
       "version": "11.4.13",
-      "review_count": 544,
-      "mean_rating": 3.63,
-      "negative_count": 172,
-      "negative_pct": 31.62
+      "review_count": 497,
+      "mean_rating": 3.64,
+      "negative_count": 156,
+      "negative_pct": 31.39
     },
     {
       "version": "11.5.17",
@@ -615,10 +615,10 @@
     },
     {
       "version": "12.19.0",
-      "review_count": 122,
-      "mean_rating": 3.77,
+      "review_count": 123,
+      "mean_rating": 3.78,
       "negative_count": 37,
-      "negative_pct": 30.33
+      "negative_pct": 30.08
     },
     {
       "version": "12.12.3",
@@ -626,6 +626,13 @@
       "mean_rating": 4.03,
       "negative_count": 25,
       "negative_pct": 22.12
+    },
+    {
+      "version": "12.20.0",
+      "review_count": 107,
+      "mean_rating": 3.9,
+      "negative_count": 28,
+      "negative_pct": 26.17
     },
     {
       "version": "12.8.3",
@@ -654,13 +661,6 @@
       "mean_rating": 4.17,
       "negative_count": 18,
       "negative_pct": 18.18
-    },
-    {
-      "version": "12.20.0",
-      "review_count": 99,
-      "mean_rating": 3.86,
-      "negative_count": 27,
-      "negative_pct": 27.27
     },
     {
       "version": "12.13.1",
@@ -803,6 +803,13 @@
       "negative_pct": 27.08
     },
     {
+      "version": "12.21.0",
+      "review_count": 42,
+      "mean_rating": 3.86,
+      "negative_count": 12,
+      "negative_pct": 28.57
+    },
+    {
       "version": "12.14.0",
       "review_count": 38,
       "mean_rating": 3.37,
@@ -879,7 +886,7 @@
         "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
-        "upvotes": 27,
+        "upvotes": 28,
         "text": "The app frequently crashes or hangs while booking cabs, which makes it really frustrating, especially when I\u2019m in a hurry. The GPS tracking is unreliable\u2014it often shows the driver in the wrong location, causing unnecessary delays. Notifications are delayed or sometimes don\u2019t come at all, so I end up missing important updates about my ride."
       },
       {
@@ -902,7 +909,7 @@
         "rating": 1,
         "date": "2024-01-14",
         "version": "11.4.13",
-        "upvotes": 52,
+        "upvotes": 53,
         "text": "One of the worst app. While tracking the cab in map. It's automatically zooming out after 3 4 seconds. Have to zoom in again. It's very frustrating. Besides the tracking is not accurate. OTPs are changing all of sudden. Worst case I've ever faced in the app is, OTP changed after my trip started and the end OTP is not accepting. You guys really have to look into this issues."
       },
       {
@@ -916,7 +923,7 @@
         "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
-        "upvotes": 27,
+        "upvotes": 28,
         "text": "The app frequently crashes or hangs while booking cabs, which makes it really frustrating, especially when I\u2019m in a hurry. The GPS tracking is unreliable\u2014it often shows the driver in the wrong location, causing unnecessary delays. Notifications are delayed or sometimes don\u2019t come at all, so I end up missing important updates about my ride."
       },
       {
@@ -939,7 +946,7 @@
         "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
-        "upvotes": 27,
+        "upvotes": 28,
         "text": "The app frequently crashes or hangs while booking cabs, which makes it really frustrating, especially when I\u2019m in a hurry. The GPS tracking is unreliable\u2014it often shows the driver in the wrong location, causing unnecessary delays. Notifications are delayed or sometimes don\u2019t come at all, so I end up missing important updates about my ride."
       },
       {
@@ -962,7 +969,7 @@
         "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
-        "upvotes": 27,
+        "upvotes": 28,
         "text": "The app frequently crashes or hangs while booking cabs, which makes it really frustrating, especially when I\u2019m in a hurry. The GPS tracking is unreliable\u2014it often shows the driver in the wrong location, causing unnecessary delays. Notifications are delayed or sometimes don\u2019t come at all, so I end up missing important updates about my ride."
       },
       {
@@ -992,7 +999,7 @@
         "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
-        "upvotes": 27,
+        "upvotes": 28,
         "text": "The app frequently crashes or hangs while booking cabs, which makes it really frustrating, especially when I\u2019m in a hurry. The GPS tracking is unreliable\u2014it often shows the driver in the wrong location, causing unnecessary delays. Notifications are delayed or sometimes don\u2019t come at all, so I end up missing important updates about my ride."
       },
       {
@@ -1052,14 +1059,14 @@
         "rating": 1,
         "date": "2024-01-14",
         "version": "11.4.13",
-        "upvotes": 52,
+        "upvotes": 53,
         "text": "One of the worst app. While tracking the cab in map. It's automatically zooming out after 3 4 seconds. Have to zoom in again. It's very frustrating. Besides the tracking is not accurate. OTPs are changing all of sudden. Worst case I've ever faced in the app is, OTP changed after my trip started and the end OTP is not accepting. You guys really have to look into this issues."
       },
       {
         "rating": 1,
         "date": "2025-09-10",
         "version": "12.4",
-        "upvotes": 27,
+        "upvotes": 28,
         "text": "The app frequently crashes or hangs while booking cabs, which makes it really frustrating, especially when I\u2019m in a hurry. The GPS tracking is unreliable\u2014it often shows the driver in the wrong location, causing unnecessary delays. Notifications are delayed or sometimes don\u2019t come at all, so I end up missing important updates about my ride."
       },
       {
@@ -1142,7 +1149,7 @@
         "rating": 1,
         "date": "2024-01-14",
         "version": "11.4.13",
-        "upvotes": 52,
+        "upvotes": 53,
         "text": "One of the worst app. While tracking the cab in map. It's automatically zooming out after 3 4 seconds. Have to zoom in again. It's very frustrating. Besides the tracking is not accurate. OTPs are changing all of sudden. Worst case I've ever faced in the app is, OTP changed after my trip started and the end OTP is not accepting. You guys really have to look into this issues."
       },
       {
